@@ -36,6 +36,8 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /rockmary
         run: npm run build
 
       - name: Upload artifact
@@ -51,7 +53,7 @@ jobs:
         url: ${{ steps.deployment.outputs.page_url }}
 
       needs: build
-      
+
       steps:
       - name: Deploy to GitHub Pages
         id: deployment
