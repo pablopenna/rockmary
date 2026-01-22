@@ -85,7 +85,7 @@ export default function Portfolio() {
           >
             <div className="relative w-full h-full flex items-center justify-center" onClick={(e) => {setFullscreenImage(null); e.stopPropagation();}}>
               <Image
-                src={fullscreenImage}
+                src={withBasePath(fullscreenImage)}
                 alt="Fullscreen"
                 fill
                 className="object-contain"
