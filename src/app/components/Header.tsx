@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { withBasePath } from "@/lib/basePath";
 
 export default function Header() {
   return (
@@ -7,7 +8,7 @@ export default function Header() {
         {/* Logo and Title Section */}
         <div className="flex items-center gap-6 mb-8">
           <Image 
-            src="/logov1_3.png" 
+            src={withBasePath("/logov1_3.png")}
             alt="Rockmary Logo"
             width={80}
             height={80}

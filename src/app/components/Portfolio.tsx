@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { withBasePath } from '@/lib/basePath';
 
 interface Project {
   id: number;
@@ -68,7 +69,7 @@ export default function Portfolio() {
             <div key={index} className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer" onClick={() => setFullscreenImage(image)}>
               <div className="relative w-full h-64">
                 <Image
-                  src={image}
+                  src={withBasePath(image)}
                   alt={`${selectedProject.name} - Image ${index + 1}`}
                   fill
                   className="object-cover hover:scale-105 transition duration-300"
