@@ -13,7 +13,7 @@ export default function WhoWeAre() {
           <p className="mt-6">
             <span className="font-semibold">Want to know more details about me?</span>{' '}
             <a 
-              href="https://linkedin.com/in/pprdev/" 
+              href="https://linkedin.com/in/pprdev/"
               target="_blank" 
               rel="noopener noreferrer"
               className="text-aux-2 hover:text-chocolate-plum underline transition"
