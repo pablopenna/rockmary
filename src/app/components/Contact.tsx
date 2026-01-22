@@ -29,29 +29,61 @@ export default function Contact() {
   return (
     <section id="contact" className="py-16 bg-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-contrast mb-8">Get in touch</h2>
-        <div>
-          <p className="text-contrast-two mb-6">
-            Whether you have a fully-fleshed-out idea or just want to see if I am a good match, feel free to drop me a line. I typically respond within one business day.
-          </p>
-          <a
-            href="mailto:contact@rockmary.com"
-            className="text-aux-2 hover:text-chocolate-plum text-lg font-semibold underline"
-          >
-            contact@rockmary.com
-          </a>
-          <a
-            href="https://linkedin.com/in/pprdev/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-aux-2 hover:text-chocolate-plum underline transition"
-          >
-            Connect with me on LinkedIn
-          </a>
+        <h2 className="text-4xl font-bold text-contrast mb-12">Get in touch</h2>
+        
+        <div className="grid md:grid-cols-2 gap-12">
+          {/* Left side - Info */}
+          <div className="space-y-8">
+            <div>
+              <p className="text-lg text-contrast-two mb-8 leading-relaxed">
+                Whether you have a fully-fleshed-out idea or just want to see if I am a good match, feel free to drop me a line. I typically respond within one business day.
+              </p>
+            </div>
+
+            {/* Contact Cards */}
+            <div className="space-y-4">
+              {/* Email Card */}
+              <div className="bg-base-two p-6 rounded-lg border-l-4 border-chocolate-plum hover:shadow-lg transition">
+                <p className="text-sm text-contrast-three font-semibold mb-2 uppercase tracking-wide">Email</p>
+                <a
+                  href="mailto:contact@rockmary.com"
+                  className="text-xl font-bold text-contrast hover:text-chocolate-plum transition"
+                >
+                  contact@rockmary.com
+                </a>
+              </div>
+
+              {/* LinkedIn Card */}
+              <div className="bg-base-two p-6 rounded-lg border-l-4 border-aux-1 hover:shadow-lg transition">
+                <p className="text-sm text-contrast-three font-semibold mb-2 uppercase tracking-wide">LinkedIn</p>
+                <a
+                  href="https://linkedin.com/in/pprdev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl font-bold text-contrast hover:text-aux-1 transition"
+                >
+                  Connect with me on LinkedIn
+                </a>
+              </div>
+            </div>
+
+            <p className="text-contrast-two text-lg pt-4">
+              Thank you.
+            </p>
+          </div>
+
+          {/* Right side - Visual */}
+          <div className="flex items-center justify-center">
+            <div className="text-center space-y-6">
+              <div className="inline-block bg-base-two p-12 rounded-full">
+                <p className="text-6xl">💬</p>
+              </div>
+              <p className="text-contrast-two text-lg max-w-sm">
+                Let's have a conversation about your project and how I can help bring your ideas to life.
+              </p>
+            </div>
+          </div>
         </div>
-        <p className="text-contrast-two mt-6">
-          Thank you.
-        </p>
       </div>
     </section>
   );
