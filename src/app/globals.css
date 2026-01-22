@@ -13,9 +13,10 @@
 
   --color-base: #D6D2CE;
   --color-contrast: #1A1514;
-  --color-basetwo: #E1DFDB;
-  --color-contrasttwo: #65574E;
-  --color-contrastthree: #958D86;
+  --color-base-two: #E1DFDB;
+  --color-contrast-two: #65574E;
+  --color-contrast-three: #958D86;
+  --color-contrast-four: #3c2924;
 
   --color-aux-1: #346964;
   --color-aux-2: #5d2f22;
@@ -31,9 +32,10 @@
 
   --base: #D6D2CE;
   --contrast: #1A1514;
-  --basetwo: #E1DFDB;
-  --contrasttwo: #65574E;
-  --contrastthree: #958D86;
+  --base-two: #E1DFDB;
+  --contrast-two: #65574E;
+  --contrast-three: #958D86;
+  --contrast-four: #3c2924;
 
   --aux-color-1: #346964;
   --aux-color-2: #5d2f22;

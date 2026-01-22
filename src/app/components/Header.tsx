@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className="bg-aux-2 text-base py-8">
+    <header className="bg-contrast-four text-base py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Logo and Title Section */}
         <div className="flex items-center gap-6 mb-8">
@@ -14,7 +14,7 @@ export default function Header() {
             className="rounded-lg"
           />
           <div>
-            <h1 className="text-5xl font-bold text-contrast">Rockmary</h1>
+            <h1 className="text-5xl font-bold text-base-two">Rockmary</h1>
             <p className="text-lg text-base-two font-light">software made simple</p>
           </div>
         </div>
