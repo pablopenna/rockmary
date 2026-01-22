@@ -1,9 +1,9 @@
 import Header from './components/Header';
 import WhoWeAre from './components/WhoWeAre';
 import HowICanHelp from './components/HowWeCanHelp';
-import Principles from './components/Principles';
 import Technologies from './components/Technologies';
 import Portfolio from './components/Portfolio';
+import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -15,6 +15,7 @@ export default function Home() {
       <HowICanHelp />
       <Technologies />
       <Portfolio />
+      <Pricing />
       <Contact />
       <Footer />
     </div>
