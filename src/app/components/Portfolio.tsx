@@ -13,28 +13,10 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    name: "Warehouse load tracker",
+    name: "Warehouse load helper",
     description: "Frontend application developed from scratch using the SAPUI5 javascript framework. It was developed for a big surface in Spain that wanted to replace their old warehouse load tracking app with a newer one with more functionality. I made it run natively on the Android scanners of the client using Apache Cordova.",
     images: ["/portfolio/rf/portfolio_A_1.jpg", "/portfolio/rf/portfolio_A_2.jpg", "/portfolio/rf/portfolio_A_3.jpg", "/portfolio/rf/portfolio_A_4.jpg"]
   },
-  {
-    id: 2,
-    name: "Project Beta",
-    description: "An enterprise-level backend system built with Java and Kotlin. This project demonstrates our ability to handle complex business logic and scalable infrastructure.",
-    images: ["/stock_d.jpg", "/stock_e.jpg", "/stock_f.jpg"]
-  },
-  {
-    id: 3,
-    name: "Project Gamma",
-    description: "A cloud-native solution deployed on AWS using CDK. This project showcases our expertise in infrastructure as code and building highly available systems.",
-    images: ["/stock_g.jpg", "/stock_h.jpg", "/stock_i.jpg"]
-  },
-  {
-    id: 4,
-    name: "Project Delta",
-    description: "A comprehensive mobile and web platform providing seamless user experience across devices. Built with modern technologies and best practices.",
-    images: ["/stock_j.jpg", "/stock_k.jpg", "/stock_a.jpg"]
-  }
 ];
 
 export default function Portfolio() {
@@ -76,13 +58,11 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* Project Details */}
         <div className="bg-base p-8 rounded-lg mb-8">
           <h3 className="text-3xl font-bold text-contrast mb-4">{selectedProject.name}</h3>
           <p className="text-lg text-contrast-two">{selectedProject.description}</p>
         </div>
-
-        {/* Project Images */}
+        <p className="text-sm text-contrast-three mb-4 italic">* Clicking an image opens it in fullscreen *</p>
         <div className="grid md:grid-cols-3 gap-6">
           {selectedProject.images.map((image, index) => (
             <div key={index} className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer" onClick={() => setFullscreenImage(image)}>
@@ -98,7 +78,6 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* Fullscreen Modal */}
         {fullscreenImage && (
           <div 
             className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
