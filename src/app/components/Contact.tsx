@@ -31,7 +31,7 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-contrast mb-12">Get in touch</h2>
         
-        <div className="grid md:grid-cols-2 gap-12">
+        
           {/* Left side - Info */}
           <div className="space-y-8">
             <div>
@@ -41,7 +41,7 @@ export default function Contact() {
             </div>
 
             {/* Contact Cards */}
-            <div className="space-y-4">
+            <div className="space-y-4 grid md:grid-cols-2 gap-12">
               {/* Email Card */}
               <div className="bg-base-two p-6 rounded-lg border-l-4 border-chocolate-plum hover:shadow-lg transition">
                 <p className="text-sm text-contrast-three font-semibold mb-2 uppercase tracking-wide">Email</p>
@@ -71,19 +71,7 @@ export default function Contact() {
               Thank you.
             </p>
           </div>
-
-          {/* Right side - Visual */}
-          <div className="flex items-center justify-center">
-            <div className="text-center space-y-6">
-              <div className="inline-block bg-base-two p-12 rounded-full">
-                <p className="text-6xl">💬</p>
-              </div>
-              <p className="text-contrast-two text-lg max-w-sm">
-                Let's have a conversation about your project and how I can help bring your ideas to life.
-              </p>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </section>
   );
