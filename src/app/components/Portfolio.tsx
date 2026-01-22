@@ -39,6 +39,7 @@ const projects: Project[] = [
 
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<Project>(projects[0]);
+  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
   return (
     <section id="portfolio" className="py-16 bg-base-two">
@@ -71,7 +72,7 @@ export default function Portfolio() {
         {/* Project Images */}
         <div className="grid md:grid-cols-3 gap-6">
           {selectedProject.images.map((image, index) => (
-            <div key={index} className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+            <div key={index} className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer" onClick={() => setFullscreenImage(image)}>
               <div className="relative w-full h-64">
                 <Image
                   src={image}
@@ -83,6 +84,28 @@ export default function Portfolio() {
             </div>
           ))}
         </div>
+
+        {/* Fullscreen Modal */}
+        {fullscreenImage && (
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
+          >
+            <div className="relative w-full h-full flex items-center justify-center" onClick={(e) => {setFullscreenImage(null); e.stopPropagation();}}>
+              <Image
+                src={fullscreenImage}
+                alt="Fullscreen"
+                fill
+                className="object-contain"
+              />
+              <button
+                onClick={() => setFullscreenImage(null)}
+                className="absolute top-4 right-4 bg-base text-contrast rounded-full w-12 h-12 flex items-center justify-center text-2xl font-bold hover:bg-base-two transition"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
