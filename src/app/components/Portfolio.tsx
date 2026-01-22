@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 interface Project {
@@ -40,6 +40,19 @@ const projects: Project[] = [
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<Project>(projects[0]);
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setFullscreenImage(null);
+      }
+    };
+
+    if (fullscreenImage) {
+      window.addEventListener('keydown', handleEscapeKey);
+      return () => window.removeEventListener('keydown', handleEscapeKey);
+    }
+  }, [fullscreenImage]);
 
   return (
     <section id="portfolio" className="py-16 bg-base-two">
