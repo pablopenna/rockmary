@@ -9,19 +9,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        base: "var(--base)",
-        "base-two": "var(--basetwo)",
-        contrast: "var(--contrast)",
-        "contrast-two": "var(--contrasttwo)",
-        "contrast-three": "var(--contrastthree)",
-        "dust-grey": "var(--dust-grey)",
-        "smoky-rose": "var(--smoky-rose)",
-        "lilac-ash": "var(--lilac-ash)",
-        silver: "var(--silver)",
-        "chocolate-plum": "var(--chocolate-plum)",
-        "aux-1": "var(--aux-color-1)",
-        "aux-2": "var(--aux-color-2)",
-        "aux-3": "var(--aux-color-3)",
       },
     },
   },
