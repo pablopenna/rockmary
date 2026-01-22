@@ -1,6 +1,6 @@
 import Header from './components/Header';
 import WhoWeAre from './components/WhoWeAre';
-import HowWeCanHelp from './components/HowWeCanHelp';
+import HowICanHelp from './components/HowWeCanHelp';
 import Principles from './components/Principles';
 import Technologies from './components/Technologies';
 import Contact from './components/Contact';
@@ -11,7 +11,7 @@ export default function Home() {
     <div className="min-h-screen bg-base">
       <Header />
       <WhoWeAre />
-      <HowWeCanHelp />
+      <HowICanHelp />
       <Principles />
       <Technologies />
       <Contact />
