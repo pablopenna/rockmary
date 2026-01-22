@@ -15,22 +15,22 @@ export default function HowWeCanHelp() {
   ];
 
   return (
-    <section id="how-we-help" className="py-16 bg-gray-50">
+    <section id="how-we-help" className="py-16 bg-base-two">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4">How We Can Help</h2>
-        <p className="text-lg text-gray-700 mb-12">At Rockmary, we offer flexible software development services to meet your unique needs:</p>
+        <h2 className="text-4xl font-bold text-contrast mb-4">How We Can Help</h2>
+        <p className="text-lg text-contrast-two mb-12">At Rockmary, we offer flexible software development services to meet your unique needs:</p>
         
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {services.map((service, index) => (
-            <div key={index} className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
-              <p className="text-gray-700">{service.description}</p>
+            <div key={index} className="bg-base p-8 rounded-lg shadow-md hover:shadow-lg transition border-t-4 border-aux-1">
+              <h3 className="text-xl font-bold text-contrast mb-4">{service.title}</h3>
+              <p className="text-contrast-two">{service.description}</p>
             </div>
           ))}
         </div>
 
         <div className="text-center">
-          <p className="text-lg font-semibold text-gray-900 mb-4">Sounds good to you? <a href="#contact" className="text-blue-600 hover:text-blue-800 underline">Contact us to get started!</a></p>
+          <p className="text-lg font-semibold text-contrast mb-4">Sounds good to you? <a href="#contact" className="text-aux-2 hover:text-chocolate-plum underline">Contact us to get started!</a></p>
         </div>
       </div>
     </section>

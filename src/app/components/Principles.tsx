@@ -15,16 +15,16 @@ export default function Principles() {
   ];
 
   return (
-    <section id="principles" className="py-16 bg-white">
+    <section id="principles" className="py-16 bg-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Principles</h2>
-        <p className="text-lg text-gray-700 mb-12">Our principles guide how we work, make decisions, and collaborate with clients. They reflect our commitment to integrity, purpose, and delivering real value in every project.</p>
+        <h2 className="text-4xl font-bold text-contrast mb-4">Our Principles</h2>
+        <p className="text-lg text-contrast-two mb-12">Our principles guide how we work, make decisions, and collaborate with clients. They reflect our commitment to integrity, purpose, and delivering real value in every project.</p>
         
         <div className="grid md:grid-cols-3 gap-8">
           {principles.map((principle, index) => (
-            <div key={index} className="border-l-4 border-blue-600 pl-6 py-4">
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">{principle.title}</h3>
-              <p className="text-gray-700">{principle.description}</p>
+            <div key={index} className="border-l-4 border-aux-1 pl-6 py-4">
+              <h3 className="text-2xl font-bold text-contrast mb-3">{principle.title}</h3>
+              <p className="text-contrast-two">{principle.description}</p>
             </div>
           ))}
         </div>

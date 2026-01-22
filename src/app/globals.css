@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  /* CSS HEX */
   --dust-grey: #d0d0d0ff;
   --smoky-rose: #876a6aff;
   --lilac-ash: #a79c9cff;
