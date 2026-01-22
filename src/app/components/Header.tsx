@@ -22,7 +22,7 @@ export default function Header() {
         {/* Navigation */}
         <nav className="flex justify-between items-center">
           <ul className="hidden md:flex gap-8">
-            <li><a href="#who-we-are" className="hover:text-base-two transition">Who We Are</a></li>
+            <li><a href="#who-am-i" className="hover:text-base-two transition">Who We Are</a></li>
             <li><a href="#how-we-help" className="hover:text-base-two transition">How We Help</a></li>
             <li><a href="#principles" className="hover:text-base-two transition">Principles</a></li>
             <li><a href="#technologies" className="hover:text-base-two transition">Technologies</a></li>

@@ -12,7 +12,7 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-base-two">
-              <li><a href="#who-we-are" className="hover:text-base transition">Who We Are</a></li>
+              <li><a href="#who-am-i" className="hover:text-base transition">Who We Are</a></li>
               <li><a href="#how-i-can-help" className="hover:text-base transition">How We Help</a></li>
               <li><a href="#principles" className="hover:text-base transition">Our Principles</a></li>
               <li><a href="#technologies" className="hover:text-base transition">Technologies</a></li>
