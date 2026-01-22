@@ -41,9 +41,9 @@ export default function Contact() {
             </div>
 
             {/* Contact Cards */}
-            <div className="space-y-4 grid md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-max">
               {/* Email Card */}
-              <div className="bg-base-two p-6 rounded-lg border-l-4 border-chocolate-plum hover:shadow-lg transition">
+              <div className="bg-base-two p-6 rounded-lg border-l-4 border-chocolate-plum hover:shadow-lg transition h-full">
                 <p className="text-sm text-contrast-three font-semibold mb-2 uppercase tracking-wide">Email</p>
                 <a
                   href="mailto:contact@rockmary.com"
@@ -54,7 +54,7 @@ export default function Contact() {
               </div>
 
               {/* LinkedIn Card */}
-              <div className="bg-base-two p-6 rounded-lg border-l-4 border-aux-1 hover:shadow-lg transition">
+              <div className="bg-base-two p-6 rounded-lg border-l-4 border-aux-1 hover:shadow-lg transition h-full">
                 <p className="text-sm text-contrast-three font-semibold mb-2 uppercase tracking-wide">LinkedIn</p>
                 <a
                   href="https://linkedin.com/in/pprdev/"
