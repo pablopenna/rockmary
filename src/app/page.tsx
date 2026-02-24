@@ -1,11 +1,11 @@
-import Header from './components/Header';
-import WhoWeAre from './components/WhoWeAre';
-import HowICanHelp from './components/HowWeCanHelp';
-import Technologies from './components/Technologies';
-import Portfolio from './components/Portfolio';
-import Pricing from './components/Pricing';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Header from '@/app/components/Header';
+import WhoWeAre from '@/app/components/WhoWeAre';
+import HowICanHelp from '@/app/components/HowWeCanHelp';
+import Technologies from '@/app/components/Technologies';
+import Portfolio from '@/app/components/Portfolio';
+import Pricing from '@/app/components/Pricing';
+import Contact from '@/app/components/Contact';
+import Footer from '@/app/components/Footer';
 
 export default function Home() {
   return (
