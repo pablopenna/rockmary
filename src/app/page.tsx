@@ -6,26 +6,18 @@ import Portfolio from '@/app/components/Portfolio';
 import Pricing from '@/app/components/Pricing';
 import Contact from '@/app/components/Contact';
 import Footer from '@/app/components/Footer';
-import { Locale } from './i18n';
 
-
-interface HomeProps {
-  locale: Locale
-}
-
-export default function DefaultHome({locale = 'en'}: HomeProps) {
-  
-
+export default function Home() {
   return (
-      <div className="min-h-screen bg-base">
-        <Header />
-        <WhoWeAre locale={locale}/>
-        <HowICanHelp />
-        <Technologies />
-        <Portfolio />
-        <Pricing />
-        <Contact />
-        <Footer />
-      </div>
+    <div className="min-h-screen bg-base">
+      <Header />
+      <WhoWeAre />
+      <HowICanHelp />
+      <Technologies />
+      <Portfolio />
+      <Pricing />
+      <Contact />
+      <Footer />
+    </div>
   );
 }
