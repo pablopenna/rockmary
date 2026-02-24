@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rockmary - Software Development Services",
-  description: "Seasoned engineers delivering tailored software solutions for your business challenges.",
+  title: "Rockmary",
+  description: "Software made simple",
 };
 
 export default function RootLayout({

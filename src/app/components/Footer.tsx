@@ -6,7 +6,7 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl font-bold mb-4">Rockmary</h3>
             <p className="text-base-two">
-              Seasoned engineers delivering tailored software solutions.
+              Software made simple
             </p>
           </div>
           <div>
@@ -27,9 +27,6 @@ export default function Footer() {
             </p>
             <p className="text-base-two text-sm">Available for new projects and team augmentation</p>
           </div>
-        </div>
-        <div className="border-t border-contrast-three pt-8 text-center text-base-two">
-          <p>&copy; 2024 Rockmary. All rights reserved.</p>
         </div>
       </div>
     </footer>
