@@ -57,10 +57,12 @@
     "HEADER_LOGO_ALT": "Rockmary Logo",
     "HEADER_BRAND": "Rockmary",
     "HEADER_TAGLINE": "software made simple",
-    "HEADER_NAV_WHO": "Who We Are",
-    "HEADER_NAV_HELP": "How We Help",
+    "HEADER_NAV_WHO": "Who Am I",
+    "HEADER_NAV_HELP": "How I Can Help",
     "HEADER_NAV_PRICING": "Pricing",
     "HEADER_NAV_PORTFOLIO": "Portfolio",
     "HEADER_NAV_TECHNOLOGIES": "Technologies",
-    "HEADER_NAV_CONTACT": "Contact"
+    "HEADER_NAV_CONTACT": "Contact",
+    "FOOTER_QUICK_LINKS": "Quick Links",
+    "FOOTER_AVAILABILITY": "Available for new projects and team augmentation"
 }

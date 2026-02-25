@@ -56,11 +56,13 @@
     "CONTACT_THANK_YOU": "Gracias.",
     "HEADER_LOGO_ALT": "Logotipo de Rockmary",
     "HEADER_BRAND": "Rockmary",
-    "HEADER_TAGLINE": "software hecho simple",
+    "HEADER_TAGLINE": "Software hecho simple",
     "HEADER_NAV_WHO": "Quién soy",
     "HEADER_NAV_HELP": "Cómo puedo ayudar",
     "HEADER_NAV_PRICING": "Precio",
     "HEADER_NAV_PORTFOLIO": "Portfolio",
     "HEADER_NAV_TECHNOLOGIES": "Tecnologías",
-    "HEADER_NAV_CONTACT": "Contacto"
+    "HEADER_NAV_CONTACT": "Contacto",
+    "FOOTER_QUICK_LINKS": "Enlaces rápidos",
+    "FOOTER_AVAILABILITY": "Disponible para nuevos proyectos y aumento del tamaño de equipo"
 }
