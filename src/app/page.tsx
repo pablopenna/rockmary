@@ -21,7 +21,7 @@ export default function DefaultHome({locale = 'en'}: HomeProps) {
         <Header />
         <WhoWeAre locale={locale}/>
         <HowICanHelp locale={locale}/>
-        <Technologies />
+        <Technologies locale={locale}/>
         <Portfolio />
         <Pricing />
         <Contact />

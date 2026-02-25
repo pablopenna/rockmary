@@ -15,4 +15,15 @@
     "HOW_I_CAN_HELP_SERVICE_SUPPORT_DESC": "I provide on-demand development power to help you quickly scale and move faster.",
     "HOW_I_CAN_HELP_CTA_PREFIX": "Sounds good?",
     "HOW_I_CAN_HELP_CTA_LINK": "Get in touch to get started!"
+    ,
+    "TECHNOLOGIES_TITLE": "Technologies",
+    "TECHNOLOGIES_PARAGRAPH": "I am a full-stack developer with expertise in both backend and frontend technologies, enabling me to build seamless, high-performance solutions from end to end.",
+    "TECHNOLOGIES_BACKEND_TITLE": "Backend",
+    "TECHNOLOGIES_BACKEND_P1": "I have professional experience in Java and Kotlin.",
+    "TECHNOLOGIES_BACKEND_P2": "I am also confident working with similar languages such as Python and C#, allowing me to adapt to diverse project requirements.",
+    "TECHNOLOGIES_FRONTEND_TITLE": "Frontend",
+    "TECHNOLOGIES_FRONTEND_P1": "I have professional experience in Javascript, Typescript, Node.js and React.",
+    "TECHNOLOGIES_FRONTEND_P2": "I am also adaptable and confident working with other frameworks such as Vue.js, Angular, and more, ensuring I can meet the unique needs of any project.",
+    "TECHNOLOGIES_INFRA_TITLE": "Infrastructure",
+    "TECHNOLOGIES_INFRA_P1": "I have hands-on experience with AWS and AWS CDK, enabling me to build scalable and efficient cloud solutions."
 }

@@ -1,38 +1,46 @@
-export default function Technologies() {
+import { getTranslation, Locale } from "../i18n";
+
+interface TechnologiesProps {
+  locale: Locale
+}
+
+export default function Technologies({ locale }: TechnologiesProps) {
+  const t = getTranslation.bind(null, locale);
+
   return (
     <section id="technologies" className="py-16 bg-base-two">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-contrast mb-4">Technologies</h2>
-        <p className="text-lg text-contrast-two mb-12">We are a full-stack development team with expertise in both backend and frontend technologies, enabling us to build seamless, high-performance solutions from end to end.</p>
+        <h2 className="text-4xl font-bold text-contrast mb-4">{t("TECHNOLOGIES_TITLE")}</h2>
+        <p className="text-lg text-contrast-two mb-12">{t("TECHNOLOGIES_PARAGRAPH")}</p>
         
         <div className="grid md:grid-cols-3 gap-8">
           {/* Backend */}
           <div className="bg-base p-8 rounded-lg shadow-md border-t-4 border-aux-1">
-            <h3 className="text-2xl font-bold text-contrast mb-4">Backend</h3>
+            <h3 className="text-2xl font-bold text-contrast mb-4">{t("TECHNOLOGIES_BACKEND_TITLE")}</h3>
             <p className="text-contrast-two mb-4">
-              We have professional experience in Java and Kotlin.
+              {t("TECHNOLOGIES_BACKEND_P1")}
             </p>
             <p className="text-contrast-two">
-              However, we are also confident in working with similar languages such as Python and C#, allowing us to adapt to diverse project requirements.
+              {t("TECHNOLOGIES_BACKEND_P2")}
             </p>
           </div>
 
           {/* Frontend */}
           <div className="bg-base p-8 rounded-lg shadow-md border-t-4 border-aux-2">
-            <h3 className="text-2xl font-bold text-contrast mb-4">Frontend</h3>
+            <h3 className="text-2xl font-bold text-contrast mb-4">{t("TECHNOLOGIES_FRONTEND_TITLE")}</h3>
             <p className="text-contrast-two mb-4">
-              Our team has professional experience in Javascript, Typescript, Node.js and React.
+              {t("TECHNOLOGIES_FRONTEND_P1")}
             </p>
             <p className="text-contrast-two">
-              We are also adaptable and feel confident in working with other frameworks such as Vue.js, Angular, and more, ensuring we can meet the unique needs of any project.
+              {t("TECHNOLOGIES_FRONTEND_P2")}
             </p>
           </div>
 
           {/* Infrastructure */}
           <div className="bg-base p-8 rounded-lg shadow-md border-t-4 border-aux-3">
-            <h3 className="text-2xl font-bold text-contrast mb-4">Infrastructure</h3>
+            <h3 className="text-2xl font-bold text-contrast mb-4">{t("TECHNOLOGIES_INFRA_TITLE")}</h3>
             <p className="text-contrast-two">
-              The team has hands-on experience with AWS and AWS CDK, enabling us to build scalable and efficient cloud solutions.
+              {t("TECHNOLOGIES_INFRA_P1")}
             </p>
           </div>
         </div>
