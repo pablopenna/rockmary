@@ -53,5 +53,14 @@
     "CONTACT_LINKEDIN_TEXT": "Contacta conmigo en LinkedIn",
     "CONTACT_COPY_COPIED": "¡Copiado!",
     "CONTACT_COPY_TITLE": "Copiar al portapapeles",
-    "CONTACT_THANK_YOU": "Gracias."
+    "CONTACT_THANK_YOU": "Gracias.",
+    "HEADER_LOGO_ALT": "Logotipo de Rockmary",
+    "HEADER_BRAND": "Rockmary",
+    "HEADER_TAGLINE": "software hecho simple",
+    "HEADER_NAV_WHO": "Quién soy",
+    "HEADER_NAV_HELP": "Cómo puedo ayudar",
+    "HEADER_NAV_PRICING": "Precio",
+    "HEADER_NAV_PORTFOLIO": "Portfolio",
+    "HEADER_NAV_TECHNOLOGIES": "Tecnologías",
+    "HEADER_NAV_CONTACT": "Contacto"
 }

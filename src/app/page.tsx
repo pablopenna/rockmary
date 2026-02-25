@@ -18,7 +18,7 @@ export default function DefaultHome({locale = 'en'}: HomeProps) {
 
   return (
       <div className="min-h-screen bg-base">
-        <Header />
+        <Header locale={locale}/>
         <WhoWeAre locale={locale}/>
         <HowICanHelp locale={locale}/>
         <Technologies locale={locale}/>
