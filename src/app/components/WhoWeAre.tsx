@@ -13,20 +13,20 @@ export default function WhoWeAre({locale}: WhoWeAreProps) {
         <h2 className="text-4xl font-bold text-contrast mb-8">{t("WHO_AM_I_TITLE")}</h2>
         <div className="space-y-6 text-contrast text-lg">
           <p>
-            My name is Pablo and I do freelancing through my company Rockmary. I am a software engineer with more than 8 years of corporate experience (5+ in big companies). I specialize in Web Applications although I have also worked in other areas (see the technologies section below).
+            {t("WHO_AM_I_PARAGRAPH_1")}
           </p>
           <p>
-            I will do my best to understand your unique needs and provide innovative, efficient, and scalable services to help you achieve your goals.
+            {t("WHO_AM_I_PARAGRAPH_2")}
           </p>
           <p className="mt-6">
-            <span className="font-semibold">Want to know more details about me?</span>{' '}
+            <span className="font-semibold">{t("WHO_AM_I_PARAGRAPH_3")}</span>{' '}
             <a 
               href="https://linkedin.com/in/pprdev/"
               target="_blank" 
               rel="noopener noreferrer"
               className="text-aux-2 hover:text-chocolate-plum underline transition"
             >
-              Connect with me on LinkedIn
+              {t("WHO_AM_I_LINK")}
             </a>
           </p>
         </div>
