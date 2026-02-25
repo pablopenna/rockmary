@@ -24,7 +24,7 @@ export default function DefaultHome({locale = 'en'}: HomeProps) {
         <Technologies locale={locale}/>
         <Portfolio locale={locale}/>
         <Pricing locale={locale}/>
-        <Contact />
+        <Contact locale={locale}/>
         <Footer />
       </div>
   );

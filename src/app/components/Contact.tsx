@@ -1,9 +1,15 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
+import { getTranslation, Locale } from '../i18n';
 
-export default function Contact() {
+interface ContactProps {
+  locale: Locale
+}
+
+export default function Contact({ locale }: ContactProps) {
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const t = getTranslation.bind(null, locale);
 
   const handleCopy = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
@@ -14,30 +20,30 @@ export default function Contact() {
   return (
     <section id="contact" className="py-16 bg-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-contrast mb-12">Get in touch</h2>
+        <h2 className="text-4xl font-bold text-contrast mb-12">{t('CONTACT_TITLE')}</h2>
         <div className="space-y-8">
           <div>
             <p className="text-lg text-contrast-two mb-8 leading-relaxed">
-              Whether you have a fully-fleshed-out idea or just want to see if I am a good match, feel free to drop me a line. I typically respond within one business day.
+              {t('CONTACT_PARAGRAPH')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-max">
             <div className="bg-base-two p-6 rounded-lg border-l-4 border-chocolate-plum hover:shadow-lg transition h-full">
-              <p className="text-sm text-contrast-three font-semibold mb-4 uppercase tracking-wide">Email</p>
+              <p className="text-sm text-contrast-three font-semibold mb-4 uppercase tracking-wide">{t('CONTACT_LABEL_EMAIL')}</p>
               <div className="flex items-center justify-between gap-4">
                 <a
-                  href="mailto:contact@rockmary.com"
+                  href={`mailto:${t('CONTACT_EMAIL')}`}
                   className="text-xl font-bold text-contrast hover:text-chocolate-plum transition"
                 >
-                  contact@rockmary.com
+                  {t('CONTACT_EMAIL')}
                 </a>
                 <div className="flex items-center gap-2 flex-shrink-0">
-                  {copiedId === 'email' && <span className="text-sm text-contrast-two">Copied!</span>}
+                  {copiedId === 'email' && <span className="text-sm text-contrast-two">{t('CONTACT_COPY_COPIED')}</span>}
                   <button
-                    onClick={() => handleCopy('contact@rockmary.com', 'email')}
+                    onClick={() => handleCopy(t('CONTACT_EMAIL'), 'email')}
                     className="p-2 rounded-lg hover:bg-base transition text-xl"
-                    title="Copy to clipboard"
+                    title={t('CONTACT_COPY_TITLE')}
                   >
                     📋
                   </button>
@@ -46,7 +52,7 @@ export default function Contact() {
             </div>
 
             <div className="bg-base-two p-6 rounded-lg border-l-4 border-aux-1 hover:shadow-lg transition h-full">
-              <p className="text-sm text-contrast-three font-semibold mb-4 uppercase tracking-wide">LinkedIn</p>
+              <p className="text-sm text-contrast-three font-semibold mb-4 uppercase tracking-wide">{t('CONTACT_LABEL_LINKEDIN')}</p>
               <div className="flex items-center justify-between gap-4">
                 <a
                   href="https://linkedin.com/in/pprdev/"
@@ -54,14 +60,14 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="text-xl font-bold text-contrast hover:text-aux-1 transition"
                 >
-                  Connect with me on LinkedIn
+                  {t('CONTACT_LINKEDIN_TEXT')}
                 </a>
                 <div className="flex items-center gap-2 flex-shrink-0">
-                  {copiedId === 'linkedin' && <span className="text-sm text-contrast-two">Copied!</span>}
+                  {copiedId === 'linkedin' && <span className="text-sm text-contrast-two">{t('CONTACT_COPY_COPIED')}</span>}
                   <button
                     onClick={() => handleCopy('https://linkedin.com/in/pprdev/', 'linkedin')}
                     className="p-2 rounded-lg hover:bg-base transition text-xl"
-                    title="Copy to clipboard"
+                    title={t('CONTACT_COPY_TITLE')}
                   >
                     📋
                   </button>
@@ -70,7 +76,7 @@ export default function Contact() {
             </div>
           </div>
           <p className="text-contrast-two text-lg pt-4">
-            Thank you.
+            {t('CONTACT_THANK_YOU')}
           </p>
         </div>
       </div>

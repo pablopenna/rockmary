@@ -44,4 +44,14 @@
     "PRICING_INC_COMM_DESC": "Actualizaciones regulares y colaboración abierta durante todo el proyecto.",
     "PRICING_INC_SUPPORT_TITLE": "Soporte post-lanzamiento",
     "PRICING_INC_SUPPORT_DESC": "Corrección de errores, optimizaciones y mejoras de funcionalidades después del despliegue."
+    ,
+    "CONTACT_TITLE": "Ponte en contacto",
+    "CONTACT_PARAGRAPH": "Si tienes una idea completamente desarrollada o solo quieres saber si soy una buena opción, no dudes en escribirme. Normalmente respondo en un día hábil.",
+    "CONTACT_LABEL_EMAIL": "Correo",
+    "CONTACT_EMAIL": "contact@rockmary.com",
+    "CONTACT_LABEL_LINKEDIN": "LinkedIn",
+    "CONTACT_LINKEDIN_TEXT": "Contacta conmigo en LinkedIn",
+    "CONTACT_COPY_COPIED": "¡Copiado!",
+    "CONTACT_COPY_TITLE": "Copiar al portapapeles",
+    "CONTACT_THANK_YOU": "Gracias."
 }

@@ -44,4 +44,14 @@
     "PRICING_INC_COMM_DESC": "Regular updates and open collaboration throughout the project.",
     "PRICING_INC_SUPPORT_TITLE": "Post-Launch Support",
     "PRICING_INC_SUPPORT_DESC": "Bug fixes, optimizations, and feature enhancements after deployment."
+    ,
+    "CONTACT_TITLE": "Get in touch",
+    "CONTACT_PARAGRAPH": "Whether you have a fully-fleshed-out idea or just want to see if I am a good match, feel free to drop me a line. I typically respond within one business day.",
+    "CONTACT_LABEL_EMAIL": "Email",
+    "CONTACT_EMAIL": "contact@rockmary.com",
+    "CONTACT_LABEL_LINKEDIN": "LinkedIn",
+    "CONTACT_LINKEDIN_TEXT": "Connect with me on LinkedIn",
+    "CONTACT_COPY_COPIED": "Copied!",
+    "CONTACT_COPY_TITLE": "Copy to clipboard",
+    "CONTACT_THANK_YOU": "Thank you."
 }
