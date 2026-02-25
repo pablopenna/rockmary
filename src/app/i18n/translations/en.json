@@ -32,4 +32,16 @@
     "PORTFOLIO_IMAGE_NOTE": "* Clicking an image opens it in fullscreen *",
     "PORTFOLIO_PROJECT_1_NAME": "Warehouse load helper",
     "PORTFOLIO_PROJECT_1_DESC": "Frontend application developed from scratch using the SAPUI5 javascript framework. It was developed for a big surface in Spain that wanted to replace their old warehouse load tracking app with a newer one with more functionality. I made it run natively on the Android scanners of the client using Apache Cordova."
+    ,
+    "PRICING_TITLE": "Pricing",
+    "PRICING_PARAGRAPH_PART1": "My default rate is ",
+    "PRICING_PARAGRAPH_PART2": "{usd_rate} USD/{eur_rate} EUR per hour ",
+    "PRICING_PARAGRAPH_PART3": "but it can be negotiated. It may also vary per project depending on its complexity.",
+    "PRICING_WHATS_INCLUDED_TITLE": "What's Included",
+    "PRICING_INC_QUALITY_TITLE": "Quality Deliverables",
+    "PRICING_INC_QUALITY_DESC": "Comprehensive testing, code reviews, metrics emission and quality standards throughout development.",
+    "PRICING_INC_COMM_TITLE": "Transparent Communication",
+    "PRICING_INC_COMM_DESC": "Regular updates and open collaboration throughout the project.",
+    "PRICING_INC_SUPPORT_TITLE": "Post-Launch Support",
+    "PRICING_INC_SUPPORT_DESC": "Bug fixes, optimizations, and feature enhancements after deployment."
 }

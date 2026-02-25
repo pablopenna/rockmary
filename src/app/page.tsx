@@ -23,7 +23,7 @@ export default function DefaultHome({locale = 'en'}: HomeProps) {
         <HowICanHelp locale={locale}/>
         <Technologies locale={locale}/>
         <Portfolio locale={locale}/>
-        <Pricing />
+        <Pricing locale={locale}/>
         <Contact />
         <Footer />
       </div>

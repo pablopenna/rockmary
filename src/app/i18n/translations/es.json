@@ -32,4 +32,16 @@
     "PORTFOLIO_IMAGE_NOTE": "* Hacer clic en una imagen la abre en pantalla completa *",
     "PORTFOLIO_PROJECT_1_NAME": "Asistente de almacén",
     "PORTFOLIO_PROJECT_1_DESC": "Aplicación frontend desarrollada desde cero usando el framework SAPUI5 de JavaScript. Se desarrolló para una gran superficie en España que quería reemplazar su antigua aplicación de seguimiento de cargas de almacén por una más nueva con más funcionalidades. La hice funcionar de forma nativa en los escáneres Android del cliente usando Apache Cordova."
+    ,
+    "PRICING_TITLE": "Precios",
+    "PRICING_PARAGRAPH_PART1": "Mi tarifa por defecto es ",
+    "PRICING_PARAGRAPH_PART2": "{usd_rate} USD/{eur_rate} EUR la hora ",
+    "PRICING_PARAGRAPH_PART3": "pero puede negociarse. También puede variar por proyecto según su complejidad.",
+    "PRICING_WHATS_INCLUDED_TITLE": "Qué incluye",
+    "PRICING_INC_QUALITY_TITLE": "Entregables de calidad",
+    "PRICING_INC_QUALITY_DESC": "Pruebas exhaustivas, revisiones de código, emisión de métricas y estándares de calidad durante el desarrollo.",
+    "PRICING_INC_COMM_TITLE": "Comunicación transparente",
+    "PRICING_INC_COMM_DESC": "Actualizaciones regulares y colaboración abierta durante todo el proyecto.",
+    "PRICING_INC_SUPPORT_TITLE": "Soporte post-lanzamiento",
+    "PRICING_INC_SUPPORT_DESC": "Corrección de errores, optimizaciones y mejoras de funcionalidades después del despliegue."
 }
