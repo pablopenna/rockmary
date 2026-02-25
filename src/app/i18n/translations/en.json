@@ -26,4 +26,10 @@
     "TECHNOLOGIES_FRONTEND_P2": "I am also adaptable and confident working with other frameworks such as Vue.js, Angular, and more, ensuring I can meet the unique needs of any project.",
     "TECHNOLOGIES_INFRA_TITLE": "Infrastructure",
     "TECHNOLOGIES_INFRA_P1": "I have hands-on experience with AWS and AWS CDK, enabling me to build scalable and efficient cloud solutions."
+    ,
+    "PORTFOLIO_TITLE": "Portfolio",
+    "PORTFOLIO_PARAGRAPH": "Here is a showcase of the work I have done as a freelance. Right now there is not much as I have recently started freelancing but will hopefully increase with time.",
+    "PORTFOLIO_IMAGE_NOTE": "* Clicking an image opens it in fullscreen *",
+    "PORTFOLIO_PROJECT_1_NAME": "Warehouse load helper",
+    "PORTFOLIO_PROJECT_1_DESC": "Frontend application developed from scratch using the SAPUI5 javascript framework. It was developed for a big surface in Spain that wanted to replace their old warehouse load tracking app with a newer one with more functionality. I made it run natively on the Android scanners of the client using Apache Cordova."
 }

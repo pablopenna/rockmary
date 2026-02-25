@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { withBasePath } from '@/lib/basePath';
+import { getTranslation, Locale } from '../i18n';
 
 interface Project {
   id: number;
@@ -11,16 +12,22 @@ interface Project {
   images: string[];
 }
 
-const projects: Project[] = [
-  {
-    id: 1,
-    name: "Warehouse load helper",
-    description: "Frontend application developed from scratch using the SAPUI5 javascript framework. It was developed for a big surface in Spain that wanted to replace their old warehouse load tracking app with a newer one with more functionality. I made it run natively on the Android scanners of the client using Apache Cordova.",
-    images: ["/portfolio/rf/portfolio_A_1.jpg", "/portfolio/rf/portfolio_A_2.jpg", "/portfolio/rf/portfolio_A_3.jpg", "/portfolio/rf/portfolio_A_4.jpg"]
-  },
-];
+interface PortfolioProps {
+  locale: Locale
+}
 
-export default function Portfolio() {
+export default function Portfolio({ locale }: PortfolioProps) {
+  const t = getTranslation.bind(null, locale);
+
+  const projects: Project[] = [
+    {
+      id: 1,
+      name: t('PORTFOLIO_PROJECT_1_NAME'),
+      description: t('PORTFOLIO_PROJECT_1_DESC'),
+      images: ['/portfolio/rf/portfolio_A_1.jpg', '/portfolio/rf/portfolio_A_2.jpg', '/portfolio/rf/portfolio_A_3.jpg', '/portfolio/rf/portfolio_A_4.jpg']
+    }
+  ];
+
   const [selectedProject, setSelectedProject] = useState<Project>(projects[0]);
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
@@ -40,8 +47,8 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="py-16 bg-base-two">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-contrast mb-4">Portfolio</h2>
-        <p className="text-lg text-contrast-two mb-12">Here is a showcase of the work I have done as a freelance. Right now there is not much as I have recently started freelancing but will hopefully increase with time.</p>
+        <h2 className="text-4xl font-bold text-contrast mb-4">{t('PORTFOLIO_TITLE')}</h2>
+        <p className="text-lg text-contrast-two mb-12">{t('PORTFOLIO_PARAGRAPH')}</p>
 
         <div className="grid md:grid-cols-4 gap-4 mb-12">
           {projects.map((project) => (
@@ -63,7 +70,7 @@ export default function Portfolio() {
           <h3 className="text-3xl font-bold text-contrast mb-4">{selectedProject.name}</h3>
           <p className="text-lg text-contrast-two">{selectedProject.description}</p>
         </div>
-        <p className="text-sm text-contrast-three mb-4 italic">* Clicking an image opens it in fullscreen *</p>
+        <p className="text-sm text-contrast-three mb-4 italic">{t('PORTFOLIO_IMAGE_NOTE')}</p>
         <div className="grid md:grid-cols-3 gap-6">
           {selectedProject.images.map((image, index) => (
             <div key={index} className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer" onClick={() => setFullscreenImage(image)}>
