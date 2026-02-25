@@ -4,4 +4,15 @@
     "WHO_AM_I_PARAGRAPH_2": "Haré todo lo posible por entender tus necesidades particulares y ofrecerte una solución eficiente y escalable que te ayude a alcanzar tus objetivos.",
     "WHO_AM_I_PARAGRAPH_3": "¿Quieres saber más detalles sobre mi?",
     "WHO_AM_I_LINK": "Conecta conmigo en LinkedIn"
+    ,
+    "HOW_I_CAN_HELP_TITLE": "Cómo puedo ayudar",
+    "HOW_I_CAN_HELP_PARAGRAPH": "Puedo ayudarte a construir y escalar software con comunicación directa y sin sobrecostes de una agencia intermedia",
+    "HOW_I_CAN_HELP_SERVICE_REFINE_TITLE": "Mejorar",
+    "HOW_I_CAN_HELP_SERVICE_REFINE_DESC": "Puedo arreglar, mejorar y/o añadir funcionalidades a tu código ya existente.",
+    "HOW_I_CAN_HELP_SERVICE_BUILD_TITLE": "Construir",
+    "HOW_I_CAN_HELP_SERVICE_BUILD_DESC": "Puedo diseñar y lanzar nuevos sitios web y sistemas desde cero.",
+    "HOW_I_CAN_HELP_SERVICE_SUPPORT_TITLE": "Soporte",
+    "HOW_I_CAN_HELP_SERVICE_SUPPORT_DESC": "Ofrezco capacidad de desarrollo bajo demanda para ayudarte a escalar y avanzar más rápido.",
+    "HOW_I_CAN_HELP_CTA_PREFIX": "¿Suena bien?",
+    "HOW_I_CAN_HELP_CTA_LINK": "¡Ponte en contacto para comenzar!"
 }

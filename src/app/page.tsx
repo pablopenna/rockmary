@@ -20,7 +20,7 @@ export default function DefaultHome({locale = 'en'}: HomeProps) {
       <div className="min-h-screen bg-base">
         <Header />
         <WhoWeAre locale={locale}/>
-        <HowICanHelp />
+        <HowICanHelp locale={locale}/>
         <Technologies />
         <Portfolio />
         <Pricing />

@@ -1,24 +1,32 @@
-export default function HowICanHelp() {
+import { getTranslation, Locale } from "../i18n";
+
+interface HowICanHelpProps {
+  locale: Locale
+}
+
+export default function HowICanHelp({ locale }: HowICanHelpProps) {
+  const t = getTranslation.bind(null, locale);
+
   const services = [
     {
-      title: "Refine",
-      description: "I can fix, improve, and/or add features to your existing codebases."
+      title: t("HOW_I_CAN_HELP_SERVICE_REFINE_TITLE"),
+      description: t("HOW_I_CAN_HELP_SERVICE_REFINE_DESC")
     },
     {
-      title: "Build",
-      description: "I can design and launch new websites and systems from scratch."
+      title: t("HOW_I_CAN_HELP_SERVICE_BUILD_TITLE"),
+      description: t("HOW_I_CAN_HELP_SERVICE_BUILD_DESC")
     },
     {
-      title: "Support",
-      description: "I provide on-demand development power to help you quickly scale and move faster."
+      title: t("HOW_I_CAN_HELP_SERVICE_SUPPORT_TITLE"),
+      description: t("HOW_I_CAN_HELP_SERVICE_SUPPORT_DESC")
     }
   ];
 
   return (
     <section id="how-i-can-help" className="py-16 bg-base-two">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-contrast mb-4">How I Can Help</h2>
-        <p className="text-lg text-contrast-two mb-12">I can help you build and scale software with direct communication, no agency overhead</p>
+        <h2 className="text-4xl font-bold text-contrast mb-4">{t("HOW_I_CAN_HELP_TITLE")}</h2>
+        <p className="text-lg text-contrast-two mb-12">{t("HOW_I_CAN_HELP_PARAGRAPH")}</p>
         
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {services.map((service, index) => (
@@ -30,7 +38,7 @@ export default function HowICanHelp() {
         </div>
 
         <div className="text-center">
-          <p className="text-lg font-semibold text-contrast mb-4">Sounds good? <a href="#contact" className="text-aux-2 hover:text-chocolate-plum underline">Get in touch to get started!</a></p>
+          <p className="text-lg font-semibold text-contrast mb-4">{t("HOW_I_CAN_HELP_CTA_PREFIX")} <a href="#contact" className="text-aux-2 hover:text-chocolate-plum underline">{t("HOW_I_CAN_HELP_CTA_LINK")}</a></p>
         </div>
       </div>
     </section>
