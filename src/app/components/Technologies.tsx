@@ -27,6 +27,14 @@ const INFRA_ICONS: Array<TechnologyIconProps> = [
   {imgName: 'CDK', imgSrc: '/CDK.png'},
 ];
 
+const OTHERS_ICONS: Array<TechnologyIconProps> = [
+  {imgName: 'C', imgSrc: '/C.png'},
+  {imgName: 'C++', imgSrc: '/C++.png'},
+  {imgName: 'Rust', imgSrc: '/Rust.png'},
+  {imgName: 'Python', imgSrc: '/Python.png'},
+  {imgName: 'Godot', imgSrc: '/Godot.png'},
+];
+
 function TechnologyIcon({imgName, imgSrc}: TechnologyIconProps) {
   return (
     <div className="w-full h-16 flex items-center justify-center bg-white/5 p-2 rounded">
@@ -51,7 +59,7 @@ export default function Technologies({ locale }: TechnologiesProps) {
             <p className="text-contrast-two mb-4" dangerouslySetInnerHTML={{__html: t("TECHNOLOGIES_BACKEND_P1")}}/>
             <p className="text-contrast-two" dangerouslySetInnerHTML={{__html: t("TECHNOLOGIES_BACKEND_P2")}}/>
             <div className="mt-6">
-              <div className="grid grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 {BACKEND_ICONS.map((i, idx) => (
                   <TechnologyIcon key={idx} imgName={i.imgName} imgSrc={i.imgSrc}/>
                 ))}
@@ -65,7 +73,11 @@ export default function Technologies({ locale }: TechnologiesProps) {
             <p className="text-contrast-two mb-4" dangerouslySetInnerHTML={{__html: t("TECHNOLOGIES_FRONTEND_P1")}}/>
             <p className="text-contrast-two" dangerouslySetInnerHTML={{__html: t("TECHNOLOGIES_FRONTEND_P2")}}/>
             <div className="mt-6">
-              <div className="grid grid-cols-4 gap-4">
+              {/* 
+                https://v3.tailwindcss.com/docs/responsive-design#targeting-mobile-screens
+                Use unprefixed utilities to target mobile, and override them at larger breakpoints.
+              */}
+              <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
                 {FRONTEND_ICONS.map((i, idx) => (
                   <TechnologyIcon key={idx} imgName={i.imgName} imgSrc={i.imgSrc}/>
                 ))}
@@ -78,7 +90,7 @@ export default function Technologies({ locale }: TechnologiesProps) {
             <h3 className="text-2xl font-bold text-contrast mb-4">{t("TECHNOLOGIES_INFRA_TITLE")}</h3>
             <p className="text-contrast-two" dangerouslySetInnerHTML={{__html: t("TECHNOLOGIES_INFRA_P1")}}/>
             <div className="mt-6">
-              <div className="grid grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 {INFRA_ICONS.map((i, idx) => (
                   <TechnologyIcon key={idx} imgName={i.imgName} imgSrc={i.imgSrc}/>
                 ))}
@@ -86,6 +98,19 @@ export default function Technologies({ locale }: TechnologiesProps) {
             </div>
           </div>
         </div>
+
+        <div className="mt-8 bg-base p-8 rounded-lg shadow-md hover:shadow-lg transition border-t-4 border-aux-4">
+          <h3 className="text-2xl font-bold text-contrast mb-4">{t("TECHNOLOGIES_PERSONAL_TITLE")}</h3>
+          <p className="text-contrast-two mb-4" dangerouslySetInnerHTML={{__html: t("TECHNOLOGIES_PERSONAL_P1")}}/>
+          <div className="mt-6">
+            <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
+              {OTHERS_ICONS.map((i, idx) => (
+                <TechnologyIcon key={idx} imgName={i.imgName} imgSrc={i.imgSrc}/>
+              ))}
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );

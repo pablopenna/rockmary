@@ -25,7 +25,9 @@
     "TECHNOLOGIES_FRONTEND_P1": "I have professional experience in <b>Javascript</b>, <b>Typescript</b>, <b>Node.js</b> and <b>React</b> while also having done some projects in <b>SAP UI5</b>.",
     "TECHNOLOGIES_FRONTEND_P2": "I am also adaptable and confident working with other frameworks such as <b>Vue.js</b>, <b>Angular</b>, and more, ensuring I can meet the unique needs of any project.",
     "TECHNOLOGIES_INFRA_TITLE": "Infrastructure",
-    "TECHNOLOGIES_INFRA_P1": "I have hands-on experience with <b>AWS</b> and <b>AWS CDK</b>, enabling me to build scalable and efficient cloud solutions."
+    "TECHNOLOGIES_INFRA_P1": "I have hands-on experience with <b>AWS</b> and <b>AWS CDK</b>, enabling me to build scalable and efficient cloud solutions.",
+    "TECHNOLOGIES_PERSONAL_TITLE": "Others",
+    "TECHNOLOGIES_PERSONAL_P1": "On my free time I like learning new techonologies. Although it is not professional, I have experience with <b>C</b>, <b>C++</b>, <b>Rust</b>, <b>Python</b> and <b>Godot</b>."
     ,
     "PORTFOLIO_TITLE": "Portfolio",
     "PORTFOLIO_PARAGRAPH": "Here is a showcase of the work I have done as a freelance. Right now there is not much as I have recently started freelancing but will hopefully increase with time.",

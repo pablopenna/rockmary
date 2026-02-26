@@ -21,6 +21,7 @@
   --color-aux-1: #346964;
   --color-aux-2: #5d2f22;
   --color-aux-3: #32302f;
+  --color-aux-4: #cf421e;
 }
 
 :root {
@@ -40,6 +41,7 @@
   --aux-color-1: #346964;
   --aux-color-2: #5d2f22;
   --aux-color-3: #32302f;
+  --aux-color-4: #cf421e;
 
   --background: var(--base);
   --foreground: var(--contrast);
