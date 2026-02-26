@@ -19,6 +19,7 @@ const FRONTEND_ICONS: Array<TechnologyIconProps> = [
   {imgName: 'Typescript', imgSrc: '/Typescript.png'},
   {imgName: 'Node.js', imgSrc: '/Node.png'},
   {imgName: 'React', imgSrc: '/React.png'},
+  {imgName: 'SAPUI5', imgSrc: '/sapui5.png'},
 ];
 
 const INFRA_ICONS: Array<TechnologyIconProps> = [
@@ -45,7 +46,7 @@ export default function Technologies({ locale }: TechnologiesProps) {
         
         <div className="grid md:grid-cols-3 gap-8">
           {/* Backend */}
-          <div className="bg-base p-8 rounded-lg shadow-md border-t-4 border-aux-1">
+          <div className="bg-base p-8 rounded-lg shadow-md hover:shadow-lg transition border-t-4 border-aux-1">
             <h3 className="text-2xl font-bold text-contrast mb-4">{t("TECHNOLOGIES_BACKEND_TITLE")}</h3>
             <p className="text-contrast-two mb-4">
               {t("TECHNOLOGIES_BACKEND_P1")}
@@ -63,7 +64,7 @@ export default function Technologies({ locale }: TechnologiesProps) {
           </div>
 
           {/* Frontend */}
-          <div className="bg-base p-8 rounded-lg shadow-md border-t-4 border-aux-2">
+          <div className="bg-base p-8 rounded-lg shadow-md hover:shadow-lg transition border-t-4 border-aux-2">
             <h3 className="text-2xl font-bold text-contrast mb-4">{t("TECHNOLOGIES_FRONTEND_TITLE")}</h3>
             <p className="text-contrast-two mb-4">
               {t("TECHNOLOGIES_FRONTEND_P1")}
@@ -81,7 +82,7 @@ export default function Technologies({ locale }: TechnologiesProps) {
           </div>
 
           {/* Infrastructure */}
-          <div className="bg-base p-8 rounded-lg shadow-md border-t-4 border-aux-3">
+          <div className="bg-base p-8 rounded-lg shadow-md hover:shadow-lg transition border-t-4 border-aux-3">
             <h3 className="text-2xl font-bold text-contrast mb-4">{t("TECHNOLOGIES_INFRA_TITLE")}</h3>
             <p className="text-contrast-two">
               {t("TECHNOLOGIES_INFRA_P1")}
