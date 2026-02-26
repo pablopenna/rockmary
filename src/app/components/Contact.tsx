@@ -18,7 +18,7 @@ export default function Contact({ locale }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="py-16 bg-base">
+    <section id="contact" className="py-16 bg-base-two">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-contrast mb-12">{t('CONTACT_TITLE')}</h2>
         <div className="space-y-8">
@@ -29,7 +29,7 @@ export default function Contact({ locale }: ContactProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-max">
-            <div className="bg-base-two p-6 rounded-lg border-l-4 border-aux-1 hover:shadow-lg transition h-full">
+            <div className="bg-base p-6 rounded-lg border-l-4 border-aux-1 hover:shadow-lg transition h-full">
               <p className="text-sm text-contrast-three font-semibold mb-4 uppercase tracking-wide">{t('CONTACT_LABEL_EMAIL')}</p>
               <div className="flex items-center justify-between gap-4">
                 <a
@@ -51,7 +51,7 @@ export default function Contact({ locale }: ContactProps) {
               </div>
             </div>
 
-            <div className="bg-base-two p-6 rounded-lg border-l-4 border-aux-2 hover:shadow-lg transition h-full">
+            <div className="bg-base p-6 rounded-lg border-l-4 border-aux-2 hover:shadow-lg transition h-full">
               <p className="text-sm text-contrast-three font-semibold mb-4 uppercase tracking-wide">{t('CONTACT_LABEL_LINKEDIN')}</p>
               <div className="flex items-center justify-between gap-4">
                 <a
