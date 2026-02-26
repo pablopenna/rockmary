@@ -65,6 +65,10 @@
     "HEADER_NAV_PORTFOLIO": "Portfolio",
     "HEADER_NAV_TECHNOLOGIES": "Tecnologías",
     "HEADER_NAV_CONTACT": "Contacto",
+    "LANGUAGE_SELECT": "🌐 Cambiar Idioma",
+    "LANGUAGE_PLACEHOLDER": "Selecciona una opción",
+    "LANGUAGE_EN": "Inglés",
+    "LANGUAGE_ES": "Español",
     "FOOTER_QUICK_LINKS": "Enlaces rápidos",
     "FOOTER_AVAILABILITY": "Disponible para nuevos proyectos y aumento del tamaño de equipo"
 }
