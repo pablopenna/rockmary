@@ -19,13 +19,13 @@
     "TECHNOLOGIES_TITLE": "Tecnologías",
     "TECHNOLOGIES_PARAGRAPH": "Soy un desarrollador full-stack con experiencia en tecnologías de backend y frontend, lo que me permite construir soluciones integradas y de alto rendimiento de principio a fin.",
     "TECHNOLOGIES_BACKEND_TITLE": "Backend",
-    "TECHNOLOGIES_BACKEND_P1": "Tengo experiencia profesional en Java y Kotlin.",
-    "TECHNOLOGIES_BACKEND_P2": "Sin embargo, también he trabajado con lenguajes similares como Python y C#, lo que me permite adaptarme a diversos requisitos de proyecto.",
+    "TECHNOLOGIES_BACKEND_P1": "Tengo experiencia profesional en <b>Java</b> y <b>Kotlin</b>.",
+    "TECHNOLOGIES_BACKEND_P2": "Sin embargo, también he trabajado con lenguajes similares como <b>Python</b> y <b>C#</b>, lo que me permite adaptarme a diversos requisitos de proyecto.",
     "TECHNOLOGIES_FRONTEND_TITLE": "Frontend",
-    "TECHNOLOGIES_FRONTEND_P1": "Tengo experiencia profesional en Javascript, Typescript, Node.js y React aunque también he hecho varios proyectos en SAP UI5.",
-    "TECHNOLOGIES_FRONTEND_P2": "También soy adaptable y me siento cómodo trabajando con otros frameworks como Vue.js, Angular y demás; garantizando que puedo satisfacer las necesidades únicas de cualquier proyecto.",
+    "TECHNOLOGIES_FRONTEND_P1": "Tengo experiencia profesional en <b>Javascript</b>, <b>Typescript</b>, <b>Node.js</b> y <b>React</b> aunque también he hecho varios proyectos en <b>SAP UI5</b>.",
+    "TECHNOLOGIES_FRONTEND_P2": "También soy adaptable y me siento cómodo trabajando con otros frameworks como <b>Vue.js</b>, <b>Angular</b> y demás; garantizando que puedo satisfacer las necesidades únicas de cualquier proyecto.",
     "TECHNOLOGIES_INFRA_TITLE": "Infraestructura",
-    "TECHNOLOGIES_INFRA_P1": "Tengo experiencia práctica con AWS y AWS CDK, lo que me permite construir soluciones en la nube escalables y eficientes."
+    "TECHNOLOGIES_INFRA_P1": "Tengo experiencia práctica con <b>AWS</b> y <b>AWS CDK</b>, lo que me permite construir soluciones en la nube escalables y eficientes."
     ,
     "PORTFOLIO_TITLE": "Portfolio",
     "PORTFOLIO_PARAGRAPH": "Aquí hay una muestra del trabajo que he realizado como freelancer. Ahora no hay mucho ya que he comenzado recientemente como freelancer, pero espero que aumente con el tiempo.",
