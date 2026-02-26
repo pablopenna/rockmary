@@ -1,3 +1,4 @@
+import BackToTop from "@/app/components/BackToTop";
 import Header from '@/app/components/Header';
 import WhoWeAre from '@/app/components/WhoWeAre';
 import HowICanHelp from '@/app/components/HowWeCanHelp';
@@ -26,6 +27,7 @@ export default function DefaultHome({locale = 'en'}: HomeProps) {
         <Pricing locale={locale}/>
         <Contact locale={locale}/>
         <Footer locale={locale}/>
+        <BackToTop locale={locale}/>
       </div>
   );
 }
