@@ -30,7 +30,7 @@ export default function HowICanHelp({ locale }: HowICanHelpProps) {
         
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {services.map((service, index) => (
-            <div key={index} className="bg-base p-8 rounded-lg shadow-md hover:shadow-lg transition border-t-4 border-aux-1">
+            <div key={index} className={`bg-base p-8 rounded-lg shadow-md hover:shadow-lg transition border-t-4 border-aux-${index+1}`}>
               <h3 className="text-xl font-bold text-contrast mb-4">{service.title}</h3>
               <p className="text-contrast-two">{service.description}</p>
             </div>
