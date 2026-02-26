@@ -4,6 +4,36 @@ interface TechnologiesProps {
   locale: Locale
 }
 
+interface TechnologyIconProps {
+  imgName: string,
+  imgSrc: string,
+}
+
+const BACKEND_ICONS: Array<TechnologyIconProps> = [
+  {imgName: 'Java', imgSrc: '/Java_cropped.png'},
+  {imgName: 'Kotlin', imgSrc: '/Kotlin.png'},
+];
+
+const FRONTEND_ICONS: Array<TechnologyIconProps> = [
+  {imgName: 'Javascript', imgSrc: '/Javascript.png'},
+  {imgName: 'Typescript', imgSrc: '/Typescript.png'},
+  {imgName: 'Node.js', imgSrc: '/Node.png'},
+  {imgName: 'React', imgSrc: '/React.png'},
+];
+
+const INFRA_ICONS: Array<TechnologyIconProps> = [
+  {imgName: 'AWS', imgSrc: '/AWS.png'},
+  {imgName: 'CDK', imgSrc: '/CDK.png'},
+];
+
+function TechnologyIcon({imgName, imgSrc}: TechnologyIconProps) {
+  return (
+    <div className="w-full h-16 flex items-center justify-center bg-white/5 p-2 rounded">
+      <img src={imgSrc} alt={imgName} className="max-h-full max-w-full object-contain" />
+    </div>
+  )
+}
+
 export default function Technologies({ locale }: TechnologiesProps) {
   const t = getTranslation.bind(null, locale);
 
@@ -23,6 +53,13 @@ export default function Technologies({ locale }: TechnologiesProps) {
             <p className="text-contrast-two">
               {t("TECHNOLOGIES_BACKEND_P2")}
             </p>
+            <div className="mt-6">
+              <div className="grid grid-cols-4 gap-4">
+                {BACKEND_ICONS.map((i, idx) => (
+                  <TechnologyIcon key={idx} imgName={i.imgName} imgSrc={i.imgSrc}/>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Frontend */}
@@ -34,6 +71,13 @@ export default function Technologies({ locale }: TechnologiesProps) {
             <p className="text-contrast-two">
               {t("TECHNOLOGIES_FRONTEND_P2")}
             </p>
+            <div className="mt-6">
+              <div className="grid grid-cols-4 gap-4">
+                {FRONTEND_ICONS.map((i, idx) => (
+                  <TechnologyIcon key={idx} imgName={i.imgName} imgSrc={i.imgSrc}/>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Infrastructure */}
@@ -42,6 +86,13 @@ export default function Technologies({ locale }: TechnologiesProps) {
             <p className="text-contrast-two">
               {t("TECHNOLOGIES_INFRA_P1")}
             </p>
+            <div className="mt-6">
+              <div className="grid grid-cols-4 gap-4">
+                {INFRA_ICONS.map((i, idx) => (
+                  <TechnologyIcon key={idx} imgName={i.imgName} imgSrc={i.imgSrc}/>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
