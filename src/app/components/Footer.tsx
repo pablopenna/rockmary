@@ -8,7 +8,7 @@ export default function Footer({ locale }: FooterProps) {
   const t = getTranslation.bind(null, locale);
 
   return (
-    <footer className="bg-aux-3 text-base py-12">
+    <footer className="bg-aux-3 text-base py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>

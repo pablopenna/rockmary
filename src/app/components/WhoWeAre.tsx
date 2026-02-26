@@ -8,7 +8,7 @@ export default function WhoWeAre({locale}: WhoWeAreProps) {
   const t = getTranslation.bind(null, locale);
 
   return (
-    <section id="who-am-i" className="py-16 bg-base">
+    <section id="who-am-i" className="py-8 bg-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-contrast mb-8">{t("WHO_AM_I_TITLE")}</h2>
         <div className="space-y-6 text-contrast text-lg">

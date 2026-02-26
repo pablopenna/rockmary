@@ -45,7 +45,7 @@ export default function Portfolio({ locale }: PortfolioProps) {
   }, [fullscreenImage]);
 
   return (
-    <section id="portfolio" className="py-16 bg-base-two">
+    <section id="portfolio" className="py-8 bg-base-two">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-contrast mb-4">{t('PORTFOLIO_TITLE')}</h2>
         <p className="text-lg text-contrast-two mb-12">{t('PORTFOLIO_PARAGRAPH')}</p>

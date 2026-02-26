@@ -18,7 +18,7 @@ export default function Contact({ locale }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="py-16 bg-base-two">
+    <section id="contact" className="pt-8 pb-12 bg-base-two">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-contrast mb-12">{t('CONTACT_TITLE')}</h2>
         <div className="space-y-8">

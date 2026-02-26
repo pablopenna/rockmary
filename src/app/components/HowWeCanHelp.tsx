@@ -23,7 +23,7 @@ export default function HowICanHelp({ locale }: HowICanHelpProps) {
   ];
 
   return (
-    <section id="how-i-can-help" className="py-16 bg-base-two">
+    <section id="how-i-can-help" className="py-8 bg-base-two">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-contrast mb-4">{t("HOW_I_CAN_HELP_TITLE")}</h2>
         <p className="text-lg text-contrast-two mb-12">{t("HOW_I_CAN_HELP_PARAGRAPH")}</p>
