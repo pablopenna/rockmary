@@ -40,8 +40,8 @@ export default function Header({ locale }: HeaderProps) {
     <header className="bg-contrast-four text-base py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Logo and Title Section */}
-        <div className="flex items-center justify-between gap-6 mb-8">
-          <div className="flex items-center gap-6 mb-8">
+        <div className="flex justify-between gap-6 flex-col sm:flex-row sm:mb-8">
+          <div className="flex items-center sm:justify-start gap-6 sm:mb-8">
             <Image 
               src={withBasePath("/logov1_3.png")}
               alt={t('HEADER_LOGO_ALT')}
@@ -55,7 +55,7 @@ export default function Header({ locale }: HeaderProps) {
             </div>
           </div>
 
-          <div className="flex items-center gap-6 mb-8">
+          <div className="flex gap-6 justify-end items-end sm:items-center sm:mb-8">
             <select defaultValue={"placeholder"} onChange={onLanguageSelected}>
               <option value="placeholder" disabled>{t('LANGUAGE_SELECT')}</option>
               <option value="en">{t('LANGUAGE_EN')}</option>
@@ -66,7 +66,7 @@ export default function Header({ locale }: HeaderProps) {
 
         {/* Navigation */}
         <nav className="flex justify-between items-center">
-          <ul className="hidden md:flex gap-8">
+          <ul className="hidden sm:flex gap-8">
             <li><a href="#who-am-i" className="hover:text-base-two transition">{t('HEADER_NAV_WHO')}</a></li>
             <li><a href="#how-i-can-help" className="hover:text-base-two transition">{t('HEADER_NAV_HELP')}</a></li>
             <li><a href="#technologies" className="hover:text-base-two transition">{t('HEADER_NAV_TECHNOLOGIES')}</a></li>
