@@ -82,6 +82,20 @@ body {
   }
 }
 
+/* Chinese (/zh): Latin text keeps the site fonts and Chinese characters fall through to Noto Sans SC,
+   whose variable is set by app/zh/page.tsx. */
+.font-sans:lang(zh) {
+  font-family: var(--font-inter), var(--font-noto-sans-sc), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-display:lang(zh) {
+  font-family: var(--font-space-grotesk), var(--font-noto-sans-sc), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-mono:lang(zh) {
+  font-family: var(--font-jetbrains-mono), var(--font-noto-sans-sc), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
 /* Page-turn corner (see PageCurl.tsx). The link box itself ignores the pointer; only the small
    corner triangle (.page-curl__hit) is hoverable/clickable, so it never covers the header buttons.
    It only peels once enabled (.page-curl--enabled), which the first click on the corner does. */
