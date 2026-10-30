@@ -2,36 +2,43 @@
 
 import { useEffect, useState } from "react";
 import { getTranslation, Locale } from "@/app/i18n";
+import { ArrowUpIcon } from "./ui";
 
 interface BackToTopProps {
   locale: Locale
 }
 
-export default function BackToTop({locale}: BackToTopProps) {
+export default function BackToTop({ locale }: BackToTopProps) {
   const [visible, setVisible] = useState(false);
   const t = getTranslation.bind(null, locale);
 
   useEffect(() => {
     const handleScroll = () => {
-      setVisible(window.pageYOffset > 200);
+      setVisible(window.scrollY > 200);
     };
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    // The button unmounts at the top; move keyboard focus there too instead of dropping it to <body>.
+    document.getElementById("main")?.focus({ preventScroll: true });
   };
 
   if (!visible) return null;
 
   return (
     <button
+      type="button"
       onClick={scrollToTop}
-      className="fixed bottom-4 right-4 bg-contrast-four text-base-two p-3 rounded-full shadow-lg hover:bg-contrast-three transition"
-      aria-label="Scroll to top"
+      aria-label={t('COMMON_BACK_TO_TOP')}
+      title={t('COMMON_BACK_TO_TOP')}
+      className="fixed bottom-4 right-4 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-chocolate-plum text-white shadow-lg transition-colors hover:bg-aux-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-chocolate-plum focus-visible:ring-2 focus-visible:ring-white"
     >
-      {t("BACK_TO_TOP")}
+      <ArrowUpIcon />
     </button>
   );
 }

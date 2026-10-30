@@ -10,10 +10,12 @@
   --color-lilac-ash: #a79c9cff;
   --color-silver: #b1aaaaff;
   --color-chocolate-plum: #734d4dff;
+  --color-blush: #E3B7B1;
 
   --color-base: #D6D2CE;
   --color-contrast: #1A1514;
   --color-base-two: #E1DFDB;
+  --color-base-three: #EFEDEA;
   --color-contrast-two: #65574E;
   --color-contrast-three: #958D86;
   --color-contrast-four: #3c2924;
@@ -24,16 +26,24 @@
   --color-aux-4: #cf421e;
 }
 
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
 :root {
   --dust-grey: #d0d0d0ff;
   --smoky-rose: #876a6aff;
   --lilac-ash: #a79c9cff;
   --silver: #b1aaaaff;
   --chocolate-plum: #734d4dff;
+  --blush: #E3B7B1;
 
   --base: #D6D2CE;
   --contrast: #1A1514;
   --base-two: #E1DFDB;
+  --base-three: #EFEDEA;
   --contrast-two: #65574E;
   --contrast-three: #958D86;
   --contrast-four: #3c2924;
@@ -43,19 +53,20 @@
   --aux-color-3: #32302f;
   --aux-color-4: #cf421e;
 
-  --background: var(--base);
+  --background: var(--base-two);
   --foreground: var(--contrast);
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
-} */
+}
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
 }

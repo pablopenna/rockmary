@@ -1,85 +1,55 @@
-'use client';
-
-import { FormEvent, useState } from 'react';
-import { getTranslation, Locale } from '../i18n';
+import { getTranslation, Locale } from '@/app/i18n';
+import { ButtonLink, Container, LinkedInIcon, MailIcon, sectionTitleClasses } from '@/app/components/ui';
 
 interface ContactProps {
-  locale: Locale
+  locale: Locale;
 }
 
+const EMAIL_USER = 'contact';
+const EMAIL_DOMAIN = 'rockmary.com';
+const EMAIL = `${EMAIL_USER}@${EMAIL_DOMAIN}`;
+const LINKEDIN_URL = 'https://linkedin.com/in/pprdev/';
+
 export default function Contact({ locale }: ContactProps) {
-  const [copiedId, setCopiedId] = useState<string | null>(null);
   const t = getTranslation.bind(null, locale);
 
-  const handleCopy = (text: string, id: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedId(id);
-    setTimeout(() => setCopiedId(null), 1000);
-  };
-
   return (
-    <section id="contact" className="pt-8 pb-12 bg-base-two">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-contrast mb-12">{t('CONTACT_TITLE')}</h2>
-        <div className="space-y-8">
-          <div>
-            <p className="text-lg text-contrast-two mb-8 leading-relaxed">
-              {t('CONTACT_PARAGRAPH')}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-max">
-            <div className="bg-base p-6 rounded-lg border-l-4 border-aux-1 hover:shadow-lg transition h-full">
-              <p className="text-sm text-contrast-three font-semibold mb-4 uppercase tracking-wide">{t('CONTACT_LABEL_EMAIL')}</p>
-              <div className="flex items-center justify-between gap-4">
-                <a
-                  href={`mailto:${t('CONTACT_EMAIL')}`}
-                  className="text-xl font-bold text-contrast hover:text-chocolate-plum transition"
-                >
-                  {t('CONTACT_EMAIL')}
-                </a>
-                <div className="flex items-center gap-2 flex-shrink-0">
-                  {copiedId === 'email' && <span className="text-sm text-contrast-two">{t('CONTACT_COPY_COPIED')}</span>}
-                  <button
-                    onClick={() => handleCopy(t('CONTACT_EMAIL'), 'email')}
-                    className="p-2 rounded-lg hover:bg-base transition text-xl"
-                    title={t('CONTACT_COPY_TITLE')}
-                  >
-                    📋
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-base p-6 rounded-lg border-l-4 border-aux-2 hover:shadow-lg transition h-full">
-              <p className="text-sm text-contrast-three font-semibold mb-4 uppercase tracking-wide">{t('CONTACT_LABEL_LINKEDIN')}</p>
-              <div className="flex items-center justify-between gap-4">
-                <a
-                  href="https://linkedin.com/in/pprdev/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xl font-bold text-contrast hover:text-aux-1 transition"
-                >
-                  {t('CONTACT_LINKEDIN_TEXT')}
-                </a>
-                <div className="flex items-center gap-2 flex-shrink-0">
-                  {copiedId === 'linkedin' && <span className="text-sm text-contrast-two">{t('CONTACT_COPY_COPIED')}</span>}
-                  <button
-                    onClick={() => handleCopy('https://linkedin.com/in/pprdev/', 'linkedin')}
-                    className="p-2 rounded-lg hover:bg-base transition text-xl"
-                    title={t('CONTACT_COPY_TITLE')}
-                  >
-                    📋
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <p className="text-contrast-two text-lg pt-4">
-            {t('CONTACT_THANK_YOU')}
-          </p>
+    <Container as="section" id="contact" aria-labelledby="contact-title" className="flex flex-col gap-6 py-26">
+      <div className="flex flex-wrap justify-between gap-12 rounded-[28px] bg-contrast p-[clamp(24px,6vw,72px)] text-white">
+        <div className="flex min-w-0 flex-[1_1_480px] flex-col gap-[18px]">
+          <h2 id="contact-title" className={sectionTitleClasses('xl')}>
+            {t('CONTACT_TITLE')}
+          </h2>
+          <p className="m-0 max-w-[520px] text-[19px] text-silver">{t('CONTACT_TEXT')}</p>
+        </div>
+        <div className="flex min-w-0 flex-[0_1_360px] flex-col justify-end gap-3.5">
+          <ButtonLink
+            href={`mailto:${EMAIL}`}
+            size="lg"
+            tone="dark"
+            icon={<MailIcon className="flex-none" />}
+            iconPosition="start"
+            className="self-start text-[15px] sm:text-[16px]"
+          >
+            {EMAIL_USER}@<wbr />
+            {EMAIL_DOMAIN}
+          </ButtonLink>
+          <ButtonLink
+            href={LINKEDIN_URL}
+            variant="outlineOnDark"
+            size="lg"
+            tone="dark"
+            external
+            icon={<LinkedInIcon className="flex-none" />}
+            iconPosition="start"
+            className="self-start"
+          >
+            {t('CONTACT_LINKEDIN')}
+            <span className="sr-only"> {t('COMMON_NEW_TAB')}</span>
+          </ButtonLink>
         </div>
       </div>
-    </section>
+      <p className="m-0 text-center text-[16px] text-contrast-two">{t('CONTACT_ABOUT')}</p>
+    </Container>
   );
 }

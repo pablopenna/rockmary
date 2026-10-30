@@ -1,117 +1,96 @@
 import { getTranslation, Locale } from "../i18n";
+import { AI_HARNESSES, AI_MODELS } from "../data/aiTools";
+import { Chip, Container, SectionHeading } from "./ui";
 
 interface TechnologiesProps {
   locale: Locale
 }
 
-interface TechnologyIconProps {
-  imgName: string,
-  imgSrc: string,
+interface Category {
+  title: string,
+  professional: Array<string>,
+  confident: Array<string>,
 }
 
-const BACKEND_ICONS: Array<TechnologyIconProps> = [
-  {imgName: 'Java', imgSrc: '/Java_cropped.png'},
-  {imgName: 'Kotlin', imgSrc: '/Kotlin.png'},
+const AI_TOOLS = [...AI_HARNESSES, ...AI_MODELS];
+
+const CATEGORIES: Array<Category> = [
+  { title: "STACK_BACKEND", professional: ["Java", "Kotlin", "Node.js"], confident: ["Python", "C#"] },
+  { title: "STACK_FRONTEND", professional: ["JavaScript", "TypeScript", "React"], confident: ["Vue.js", "Angular"] },
+  { title: "STACK_SAP", professional: ["SAPUI5", "SAP CAP", "SAP BTP", "Cloud Foundry", "SAP CRM"], confident: [] },
+  { title: "STACK_CLOUD", professional: ["AWS", "AWS CDK"], confident: [] },
+  { title: "STACK_SIDE", professional: [], confident: ["C", "C++", "Rust", "Godot"] },
 ];
 
-const FRONTEND_ICONS: Array<TechnologyIconProps> = [
-  {imgName: 'Javascript', imgSrc: '/Javascript.png'},
-  {imgName: 'Typescript', imgSrc: '/Typescript.png'},
-  {imgName: 'Node.js', imgSrc: '/Node.png'},
-  {imgName: 'React', imgSrc: '/React.png'},
-  {imgName: 'SAPUI5', imgSrc: '/sapui5.png'},
-];
-
-const INFRA_ICONS: Array<TechnologyIconProps> = [
-  {imgName: 'AWS', imgSrc: '/AWS.png'},
-  {imgName: 'CDK', imgSrc: '/CDK.png'},
-];
-
-const OTHERS_ICONS: Array<TechnologyIconProps> = [
-  {imgName: 'C', imgSrc: '/C.png'},
-  {imgName: 'C++', imgSrc: '/C++.png'},
-  {imgName: 'Rust', imgSrc: '/Rust.png'},
-  {imgName: 'Python', imgSrc: '/Python.png'},
-  {imgName: 'Godot', imgSrc: '/Godot.png'},
-];
-
-function TechnologyIcon({imgName, imgSrc}: TechnologyIconProps) {
-  return (
-    <div className="w-full h-16 flex items-center justify-center bg-white/5 p-2 rounded">
-      <img src={imgSrc} alt={imgName} className="max-h-full max-w-full object-contain" />
-    </div>
-  )
-}
+const chipListClasses = "m-0 flex list-none flex-wrap gap-2 p-0";
 
 export default function Technologies({ locale }: TechnologiesProps) {
   const t = getTranslation.bind(null, locale);
+  const pro = t("STACK_LEGEND_PRO");
+  const confident = t("STACK_LEGEND_CONFIDENT");
+
+  const legend = (
+    <ul
+      role="list"
+      aria-label={t("STACK_LEGEND_LABEL")}
+      className="m-0 flex list-none flex-wrap gap-4 p-0 text-[14px] text-contrast-two"
+    >
+      <li className="flex items-center gap-2">
+        <span aria-hidden="true" className="size-3.5 flex-none rounded-[4px] bg-contrast" />
+        {pro}
+      </li>
+      <li className="flex items-center gap-2">
+        <span aria-hidden="true" className="size-3.5 flex-none rounded-[4px] border-[1.5px] border-contrast-three" />
+        {confident}
+      </li>
+    </ul>
+  );
 
   return (
-    <section id="technologies" className="py-8 bg-base">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-contrast mb-4">{t("TECHNOLOGIES_TITLE")}</h2>
-        <p className="text-lg text-contrast-two mb-12">{t("TECHNOLOGIES_PARAGRAPH")}</p>
-        
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Backend */}
-          <div className="bg-base-two p-8 rounded-lg shadow-md hover:shadow-lg transition border-t-4 border-aux-1">
-            <h3 className="text-2xl font-bold text-contrast mb-4">{t("TECHNOLOGIES_BACKEND_TITLE")}</h3>
-            <p className="text-contrast-two mb-4" dangerouslySetInnerHTML={{__html: t("TECHNOLOGIES_BACKEND_P1")}}/>
-            <p className="text-contrast-two" dangerouslySetInnerHTML={{__html: t("TECHNOLOGIES_BACKEND_P2")}}/>
-            <div className="mt-6">
-              <div className="grid grid-cols-2 gap-4">
-                {BACKEND_ICONS.map((i, idx) => (
-                  <TechnologyIcon key={idx} imgName={i.imgName} imgSrc={i.imgSrc}/>
-                ))}
-              </div>
-            </div>
-          </div>
+    <section id="stack" aria-labelledby="stack-title" className="bg-base">
+      <Container className="flex flex-col gap-10 py-26">
+        <SectionHeading
+          eyebrow={t("STACK_EYEBROW")}
+          title={t("STACK_TITLE")}
+          titleId="stack-title"
+          aside={legend}
+        />
 
-          {/* Frontend */}
-          <div className="bg-base-two p-8 rounded-lg shadow-md hover:shadow-lg transition border-t-4 border-aux-2">
-            <h3 className="text-2xl font-bold text-contrast mb-4">{t("TECHNOLOGIES_FRONTEND_TITLE")}</h3>
-            <p className="text-contrast-two mb-4" dangerouslySetInnerHTML={{__html: t("TECHNOLOGIES_FRONTEND_P1")}}/>
-            <p className="text-contrast-two" dangerouslySetInnerHTML={{__html: t("TECHNOLOGIES_FRONTEND_P2")}}/>
-            <div className="mt-6">
-              {/* 
-                https://v3.tailwindcss.com/docs/responsive-design#targeting-mobile-screens
-                Use unprefixed utilities to target mobile, and override them at larger breakpoints.
-              */}
-              <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
-                {FRONTEND_ICONS.map((i, idx) => (
-                  <TechnologyIcon key={idx} imgName={i.imgName} imgSrc={i.imgSrc}/>
-                ))}
-              </div>
-            </div>
+        <div className="flex flex-wrap items-center gap-8 rounded-[20px] border-2 border-chocolate-plum bg-base-three p-6 sm:p-8">
+          <div className="flex min-w-0 flex-[1_1_320px] flex-col gap-2">
+            <span className="font-mono text-[12px] font-medium text-chocolate-plum">{t("STACK_AI_LABEL")}</span>
+            <h3 className="m-0 font-display text-[26px] font-bold tracking-[-0.02em]">{t("STACK_AI_TITLE")}</h3>
+            <p className="m-0 text-[16px] text-contrast-two">{t("STACK_AI_DESC")}</p>
           </div>
-
-          {/* Infrastructure */}
-          <div className="bg-base-two p-8 rounded-lg shadow-md hover:shadow-lg transition border-t-4 border-aux-3">
-            <h3 className="text-2xl font-bold text-contrast mb-4">{t("TECHNOLOGIES_INFRA_TITLE")}</h3>
-            <p className="text-contrast-two" dangerouslySetInnerHTML={{__html: t("TECHNOLOGIES_INFRA_P1")}}/>
-            <div className="mt-6">
-              <div className="grid grid-cols-2 gap-4">
-                {INFRA_ICONS.map((i, idx) => (
-                  <TechnologyIcon key={idx} imgName={i.imgName} imgSrc={i.imgSrc}/>
-                ))}
-              </div>
-            </div>
-          </div>
+          <ul role="list" className={`${chipListClasses} min-w-0 flex-[2_1_420px]`}>
+            {AI_TOOLS.map((tool) => (
+              <Chip key={tool} as="li" variant="solid" size="md">{tool}</Chip>
+            ))}
+            <Chip as="li" variant="outline" size="md">{t("STACK_ANY_HARNESS")}</Chip>
+            <Chip as="li" variant="outline" size="md">{t("STACK_ANY_MODEL")}</Chip>
+          </ul>
         </div>
 
-        <div className="mt-8 bg-base-two p-8 rounded-lg shadow-md hover:shadow-lg transition border-t-4 border-aux-4">
-          <h3 className="text-2xl font-bold text-contrast mb-4">{t("TECHNOLOGIES_PERSONAL_TITLE")}</h3>
-          <p className="text-contrast-two mb-4" dangerouslySetInnerHTML={{__html: t("TECHNOLOGIES_PERSONAL_P1")}}/>
-          <div className="mt-6">
-            <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
-              {OTHERS_ICONS.map((i, idx) => (
-                <TechnologyIcon key={idx} imgName={i.imgName} imgSrc={i.imgSrc}/>
-              ))}
-            </div>
-          </div>
-        </div>
-
-      </div>
+        <ul role="list" className="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(min(260px,100%),1fr))] gap-4 p-0">
+          {CATEGORIES.map((category) => (
+            <li key={category.title} className="flex min-w-0 flex-col gap-3.5 rounded-[18px] bg-base-three p-[26px]">
+              <h3 className="m-0 font-display text-[21px] font-bold tracking-[-0.02em]">{t(category.title)}</h3>
+              <ul role="list" className={chipListClasses}>
+                {category.professional.map((tech) => (
+                  <Chip key={tech} as="li" variant="solid">
+                    {tech}<span className="sr-only"> ({pro})</span>
+                  </Chip>
+                ))}
+                {category.confident.map((tech) => (
+                  <Chip key={tech} as="li" variant="outline">
+                    {tech}<span className="sr-only"> ({confident})</span>
+                  </Chip>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </Container>
     </section>
   );
 }

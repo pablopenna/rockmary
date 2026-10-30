@@ -1,81 +1,106 @@
-"use client" // Needed for the router
-
 import Image from "next/image";
+import Link from "next/link";
 import { withBasePath } from "@/lib/basePath";
-import { getLocaleFromString, getTranslation, Locale } from "../i18n";
-import { useRouter } from "next/navigation";
+import { getTranslation, Locale } from "../i18n";
+import { ButtonLink, Container, cx } from "./ui";
 
 interface HeaderProps {
   locale: Locale
 }
 
+const navItems = [
+  { href: "#ai", key: "NAV_AI" },
+  { href: "#services", key: "NAV_SERVICES" },
+  { href: "#stack", key: "NAV_STACK" },
+  { href: "#work", key: "NAV_WORK" },
+  { href: "#pricing", key: "NAV_PRICING" },
+];
+
+const languages: { locale: Locale; href: string; labelKey: string; nameKey: string }[] = [
+  { locale: "en", href: "/", labelKey: "COMMON_LANG_EN", nameKey: "COMMON_LANG_EN_NAME" },
+  { locale: "es", href: "/es", labelKey: "COMMON_LANG_ES", nameKey: "COMMON_LANG_ES_NAME" },
+];
+
+const focusRing =
+  "rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-chocolate-plum";
+
 export default function Header({ locale }: HeaderProps) {
   const t = getTranslation.bind(null, locale);
-  const router = useRouter();
-
-  const changeLocale = (loc: Locale) => {
-    let path = '/';
-    if(loc !== 'en') {
-      path = path + loc;
-    }
-    
-    router.push(path);
-  };
-
-  const onLanguageSelected = (e: any) => {
-    const localeInEvent = e.target.value;
-    const locale = getLocaleFromString(localeInEvent);
-    
-    if(locale === null) {
-      return;
-    }
-
-    changeLocale(locale);
-
-    // HACK: reset select in case same language as current is selected
-    e.target.value = "placeholder"
-  }
 
   return (
-    <header className="bg-contrast-four text-base py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Logo and Title Section */}
-        <div className="flex justify-between gap-6 flex-col sm:flex-row sm:mb-8">
-          <div className="flex items-center sm:justify-start gap-6 sm:mb-8">
-            <Image 
-              src={withBasePath("/logov1_3.png")}
-              alt={t('HEADER_LOGO_ALT')}
-              width={80}
-              height={80}
-              className="rounded-lg"
-            />
-            <div>
-              <h1 className="text-5xl font-bold text-base-two">{t('HEADER_BRAND')}</h1>
-              <p className="text-lg text-base-two font-light">{t('HEADER_TAGLINE')}</p>
-            </div>
-          </div>
+    <header className="border-b border-contrast/12">
+      <a
+        href="#main"
+        className="sr-only rounded-full bg-contrast px-5 py-3 font-medium text-white focus:not-sr-only focus:fixed focus:px-5 focus:py-3 focus:left-4 focus:top-4 focus:z-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-chocolate-plum"
+      >
+        {t('COMMON_SKIP_TO_CONTENT')}
+      </a>
+      <Container className="flex flex-wrap items-center justify-between gap-4 py-4">
+        <a href="#top" className={cx("flex min-w-0 items-center gap-3 text-contrast no-underline", focusRing)}>
+          <Image
+            src={withBasePath("/logov1_3.png")}
+            alt=""
+            width={34}
+            height={38}
+            className="h-[38px] w-[34px] flex-none object-contain"
+          />
+          <span className="flex min-w-0 flex-col leading-[1.1]">
+            <span className="font-display text-[20px] font-bold tracking-[-0.02em]">Rockmary</span>
+            <span className="text-[12px] text-contrast-two">{t('NAV_TAGLINE')}</span>
+          </span>
+        </a>
 
-          <div className="flex gap-6 justify-end items-end sm:items-center sm:mb-8">
-            <select defaultValue={"placeholder"} onChange={onLanguageSelected}>
-              <option value="placeholder" disabled>{t('LANGUAGE_SELECT')}</option>
-              <option value="en">{t('LANGUAGE_EN')}</option>
-              <option value="es">{t('LANGUAGE_ES')}</option>
-            </select>
-          </div>
-        </div>
-
-        {/* Navigation */}
-        <nav className="flex justify-between items-center">
-          <ul className="hidden sm:flex gap-8">
-            <li><a href="#who-am-i" className="hover:text-base-two transition">{t('HEADER_NAV_WHO')}</a></li>
-            <li><a href="#how-i-can-help" className="hover:text-base-two transition">{t('HEADER_NAV_HELP')}</a></li>
-            <li><a href="#technologies" className="hover:text-base-two transition">{t('HEADER_NAV_TECHNOLOGIES')}</a></li>
-            <li><a href="#portfolio" className="hover:text-base-two transition">{t('HEADER_NAV_PORTFOLIO')}</a></li>
-            <li><a href="#pricing" className="hover:text-base-two transition">{t('HEADER_NAV_PRICING')}</a></li>
-            <li><a href="#contact" className="hover:text-base-two transition">{t('HEADER_NAV_CONTACT')}</a></li>
+        <nav aria-label={t('COMMON_NAV_LABEL')} className="min-w-0 max-w-full">
+          <ul className="m-0 flex list-none flex-wrap items-center gap-x-2.5 gap-y-1 p-0 text-[15px] font-medium min-[360px]:gap-x-4 sm:gap-x-[26px]">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className={cx(
+                    "inline-flex min-h-11 items-center text-contrast-two no-underline transition-colors hover:text-chocolate-plum",
+                    focusRing
+                  )}
+                >
+                  {t(item.key)}
+                </a>
+              </li>
+            ))}
+            <li>
+              <span role="group" aria-label={t('COMMON_LANG_LABEL')} className="flex items-center gap-1.5 text-[13px] text-contrast-two">
+                {languages.map((lang, i) => {
+                  const current = lang.locale === locale;
+                  const name = t(lang.nameKey);
+                  return (
+                    <span key={lang.locale} className="flex items-center gap-1.5">
+                      {i > 0 && <span aria-hidden="true">/</span>}
+                      <Link
+                        href={lang.href}
+                        hrefLang={lang.locale}
+                        lang={lang.locale}
+                        aria-label={name}
+                        title={name}
+                        aria-current={current ? "page" : undefined}
+                        className={cx(
+                          "inline-flex min-h-11 items-center no-underline transition-colors hover:text-chocolate-plum",
+                          current ? "font-semibold text-contrast" : "text-contrast-two",
+                          focusRing
+                        )}
+                      >
+                        {t(lang.labelKey)}
+                      </Link>
+                    </span>
+                  );
+                })}
+              </span>
+            </li>
+            <li>
+              <ButtonLink href="#contact" variant="dark" size="sm">
+                {t('NAV_HIRE')}
+              </ButtonLink>
+            </li>
           </ul>
         </nav>
-      </div>
+      </Container>
     </header>
   );
 }

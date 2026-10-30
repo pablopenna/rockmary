@@ -1,46 +1,58 @@
-'use client';
-
-import { getTranslation, Locale } from '../i18n';
+import { format, getTranslation, Locale } from '@/app/i18n';
+import { CheckIcon, Container, eyebrowClasses, sectionTitleClasses } from '@/app/components/ui';
 
 interface PricingProps {
-  locale: Locale
+  locale: Locale;
 }
+
+const EUR_RATE_PER_HOUR = 25;
+const USD_RATE_PER_HOUR = 30;
+
+const INCLUDED = [
+  { title: 'PRICING_QUALITY_TITLE', desc: 'PRICING_QUALITY_DESC' },
+  { title: 'PRICING_COMM_TITLE', desc: 'PRICING_COMM_DESC' },
+  { title: 'PRICING_SUPPORT_TITLE', desc: 'PRICING_SUPPORT_DESC' },
+];
 
 export default function Pricing({ locale }: PricingProps) {
   const t = getTranslation.bind(null, locale);
-  const USD_RATE_PER_HOUR = 30;
-  const EUR_RATE_PER_HOUR = 25;
-
-  const pricing = t('PRICING_PARAGRAPH_PART2').replace('{usd_rate}', USD_RATE_PER_HOUR).replace('{eur_rate}', EUR_RATE_PER_HOUR);
 
   return (
-    <section id="pricing" className="py-8 bg-base">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-contrast mb-4">{t('PRICING_TITLE')}</h2>
-        <p className="text-lg text-contrast-two mb-12 leading-relaxed">
-          {t('PRICING_PARAGRAPH_PART1')}
-          <b>{pricing}</b>
-          {t('PRICING_PARAGRAPH_PART3')}
-        </p>
-
-        <h3 className="text-2xl font-bold text-contrast">{t('PRICING_WHATS_INCLUDED_TITLE')}</h3>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="mt-4 bg-base-two p-6 rounded-lg border-l-4 border-aux-1">
-            <h4 className="font-semibold text-contrast mb-2">{t('PRICING_INC_QUALITY_TITLE')}</h4>
-            <p className="text-contrast-two">{t('PRICING_INC_QUALITY_DESC')}</p>
-          </div>
-          <div className="mt-4 bg-base-two p-6 rounded-lg border-l-4 border-aux-2">
-              <h4 className="font-semibold text-contrast mb-2">{t('PRICING_INC_COMM_TITLE')}</h4>
-              <p className="text-contrast-two">{t('PRICING_INC_COMM_DESC')}</p>
-          </div>
-          <div className="mt-4 bg-base-two p-6 rounded-lg border-l-4 border-aux-3">
-              <h4 className="font-semibold text-contrast mb-2">{t('PRICING_INC_SUPPORT_TITLE')}</h4>
-              <p className="text-contrast-two">{t('PRICING_INC_SUPPORT_DESC')}</p>
-          </div>
+    <section id="pricing" aria-labelledby="pricing-title" className="bg-base">
+      <Container className="flex flex-wrap items-start gap-12 py-26">
+        <div className="flex min-w-0 flex-[1_1_380px] flex-col gap-4">
+          <span className={eyebrowClasses()}>{t('PRICING_EYEBROW')}</span>
+          <h2 id="pricing-title" className={sectionTitleClasses('md')}>
+            {t('PRICING_TITLE')}
+          </h2>
+          <p className="m-0 flex flex-wrap items-baseline gap-2.5 pt-2">
+            <span className="font-display text-[72px] leading-none font-bold tracking-[-0.04em]">
+              {format(t('PRICING_RATE'), { eur: EUR_RATE_PER_HOUR })}
+            </span>
+            <span className="text-[18px] text-contrast-two">
+              {format(t('PRICING_RATE_SUFFIX'), { usd: USD_RATE_PER_HOUR })}
+            </span>
+          </p>
+          <p className="m-0 text-contrast-two">{t('PRICING_NOTE')}</p>
         </div>
 
-      </div>
+        <div className="flex min-w-0 flex-[1_1_524px] flex-col gap-[22px] rounded-[20px] bg-base-three p-6 sm:p-8">
+          <h3 className="m-0 font-mono text-[12px] font-normal tracking-[0.08em] text-contrast-two uppercase">
+            {t('PRICING_INCLUDED')}
+          </h3>
+          <ul className="m-0 flex list-none flex-col gap-[22px] p-0">
+            {INCLUDED.map((item) => (
+              <li key={item.title} className="flex gap-3.5">
+                <CheckIcon size={22} className="mt-0.5 flex-none text-chocolate-plum" />
+                <span className="flex min-w-0 flex-col">
+                  <span className="font-semibold">{t(item.title)}</span>
+                  <span className="text-[15px] text-contrast-two">{t(item.desc)}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Container>
     </section>
   );
 }

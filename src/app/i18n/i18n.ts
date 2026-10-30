@@ -1,24 +1,6 @@
 import { Locale } from ".";
-
-export const SUPPORTED_LOCALES = ['en', 'es'] as const;
-
-const enTranslations = require('./translations/en.json');
-const esTranslations = require('./translations/es.json');
-
-export const getLocaleFromString = (locale: string): Locale | null => {
-    if(SUPPORTED_LOCALES.includes(locale as Locale)) {
-        return locale as Locale;
-    }
-    return null;
-}
-
-// TODO: don't be lazy
-export const getLocaleFromPathname = (pathname: string): Locale => {
-    if(pathname.includes('/es')) {
-        return 'es';
-    }
-    return 'en';
-}
+import enTranslations from "./translations/en.json";
+import esTranslations from "./translations/es.json";
 
 export const getTranslation = (locale: Locale, key: string) => {
     const translationsFile = getTranslationFile(locale);
@@ -27,7 +9,7 @@ export const getTranslation = (locale: Locale, key: string) => {
     return translation !== undefined ? translation : key;
 }
 
-const getTranslationFile = (locale: Locale) => {
+const getTranslationFile = (locale: Locale): Record<string, string> => {
     switch(locale) {
         case 'es':
             return esTranslations;
@@ -35,3 +17,14 @@ const getTranslationFile = (locale: Locale) => {
             return enTranslations;
     }
 }
+
+// Page title and description for a locale. Plain hyphens read better in search results than U+2011.
+export const getPageMetadata = (locale: Locale) => ({
+    title: getTranslation(locale, 'META_TITLE'),
+    description: getTranslation(locale, 'HERO_SUBTITLE').replace(/\u2011/g, '-'),
+})
+
+// Replaces {placeholder} tokens, e.g. format("{eur} €", { eur: 25 }) -> "25 €"
+export const format = (str: string, vars: Record<string, string | number>) =>
+    str.replace(/\{(\w+)\}/g, (match, name: string) =>
+        vars[name] !== undefined ? String(vars[name]) : match);

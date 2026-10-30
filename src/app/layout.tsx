@@ -1,21 +1,30 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { getPageMetadata } from "./i18n";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  weight: ["500", "600", "700"],
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
+  weight: ["400", "500", "600"],
   subsets: ["latin"],
+  display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Rockmary",
-  description: "Software made simple",
-};
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  weight: ["500"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+export const metadata: Metadata = getPageMetadata("en");
 
 export default function RootLayout({
   children,
@@ -23,12 +32,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
