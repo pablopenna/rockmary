@@ -3,6 +3,7 @@ export { default as SectionHeading, eyebrowClasses, sectionTitleClasses } from "
 export type { SectionTone, SectionHeadingSize } from "./SectionHeading";
 export { default as Chip } from "./Chip";
 export type { ChipVariant, ChipSize } from "./Chip";
+export { default as ChipLogo } from "./ChipLogo";
 export { default as ButtonLink, buttonClasses } from "./ButtonLink";
 export type { ButtonVariant, ButtonSize } from "./ButtonLink";
 export * from "./icons";

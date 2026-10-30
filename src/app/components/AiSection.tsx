@@ -1,6 +1,6 @@
 import { getTranslation, Locale } from "../i18n";
-import { AI_HARNESSES, AI_MODELS } from "../data/aiTools";
-import { CheckIcon, Chip, CodeIcon, Container, SectionHeading, SparklesIcon } from "./ui";
+import { AI_HARNESSES, AI_LOGOS, AI_MODELS } from "../data/aiTools";
+import { CheckIcon, Chip, ChipLogo, CodeIcon, Container, SectionHeading, SparklesIcon } from "./ui";
 
 interface AiSectionProps {
   locale: Locale
@@ -27,7 +27,9 @@ function ChipGroup({ id, label, items, anyOther }: ChipGroupProps) {
       </h4>
       <ul role="list" aria-labelledby={id} className="m-0 flex list-none flex-wrap gap-2 p-0">
         {items.map((item) => (
-          <Chip key={item} as="li" variant="onDark" size="md">{item}</Chip>
+          <Chip key={item} as="li" variant="onDark" size="md">
+            <ChipLogo src={AI_LOGOS[item]} />{item}
+          </Chip>
         ))}
         <Chip as="li" variant="onDarkDashed" size="md">{anyOther}</Chip>
       </ul>

@@ -1,7 +1,5 @@
-import Image from "next/image";
-import { withBasePath } from "@/lib/basePath";
 import { getTranslation, Locale } from "../i18n";
-import { ArrowRightIcon, Chip, Container, SectionHeading } from "./ui";
+import { ArrowRightIcon, Chip, ChipLogo, Container, SectionHeading } from "./ui";
 
 interface TechnologiesProps {
   locale: Locale
@@ -47,16 +45,6 @@ const ICONS: Record<string, string> = {
 
 const chipListClasses = "m-0 flex list-none flex-wrap gap-2 p-0";
 
-function TechIcon({ tech }: { tech: string }) {
-  const src = ICONS[tech];
-  if (!src) return null;
-  return (
-    <span aria-hidden="true" className="-my-0.5 -ml-1.5 mr-2 flex size-6 flex-none items-center justify-center rounded-full bg-white p-1">
-      <Image src={withBasePath(src)} alt="" width={16} height={16} className="size-full object-contain" />
-    </span>
-  );
-}
-
 export default function Technologies({ locale }: TechnologiesProps) {
   const t = getTranslation.bind(null, locale);
   const pro = t("STACK_LEGEND_PRO");
@@ -96,12 +84,12 @@ export default function Technologies({ locale }: TechnologiesProps) {
               <ul role="list" className={chipListClasses}>
                 {category.professional.map((tech) => (
                   <Chip key={tech} as="li" variant="solid">
-                    <TechIcon tech={tech} />{tech}<span className="sr-only"> ({pro})</span>
+                    <ChipLogo src={ICONS[tech]} />{tech}<span className="sr-only"> ({pro})</span>
                   </Chip>
                 ))}
                 {category.confident.map((tech) => (
                   <Chip key={tech} as="li" variant="outline">
-                    <TechIcon tech={tech} />{tech}<span className="sr-only"> ({confident})</span>
+                    <ChipLogo src={ICONS[tech]} />{tech}<span className="sr-only"> ({confident})</span>
                   </Chip>
                 ))}
               </ul>
