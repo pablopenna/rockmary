@@ -1,8 +1,8 @@
 .page {
   /* Colours: page background, dim circuit lines, bright travelling pulses. */
   --page-bg: #000;
-  --circuit-line: #3a2f6b;
-  --circuit-pulse: #9b8cff;
+  --circuit-line: #db3019;
+  --circuit-pulse: #fd8373;
 
   position: fixed;
   inset: 0;
@@ -54,7 +54,7 @@
 .pulse {
   stroke: var(--circuit-pulse);
   stroke-width: 4;
-  stroke-dasharray: 6 94;
+  stroke-dasharray: 6 44;
   stroke-dashoffset: 6;
   animation: pulse var(--duration) linear var(--delay) infinite;
   filter: drop-shadow(0 0 4px var(--circuit-pulse));
