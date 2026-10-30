@@ -148,6 +148,53 @@
   height: auto;
   transform: translate(-50%, -50%);
   image-rendering: pixelated;
+  /* The glitch is a short burst at the start of each cycle; change the duration to change the interval. */
+  animation: logoGlitch 5s steps(1, end) infinite;
+}
+
+/* Chromatic aberration: red and cyan copies of the logo split apart as the picture tears sideways. */
+@keyframes logoGlitch {
+  0%, 7%, 100% {
+    transform: translate(-50%, -50%);
+    clip-path: none;
+    filter: none;
+  }
+  1% {
+    transform: translate(calc(-50% - 1.5cqw), -50%) skewX(-8deg);
+    clip-path: inset(10% 0 55% 0);
+    filter: drop-shadow(0.9cqw 0 0 rgb(255 0 60 / 0.85)) drop-shadow(-0.9cqw 0 0 rgb(0 240 255 / 0.85));
+  }
+  2% {
+    transform: translate(calc(-50% + 2cqw), -50%) scaleY(1.06);
+    clip-path: inset(50% 0 12% 0);
+    filter: drop-shadow(-1.2cqw 0 0 rgb(255 0 60 / 0.85)) drop-shadow(1.2cqw 0 0 rgb(0 240 255 / 0.85));
+  }
+  3% {
+    transform: translate(-50%, calc(-50% + 0.5cqw)) skewX(10deg);
+    clip-path: none;
+    filter: drop-shadow(1.6cqw 0 0 rgb(255 0 60 / 0.85)) drop-shadow(-1.6cqw 0 0 rgb(0 240 255 / 0.85)) saturate(1.8);
+  }
+  4% {
+    transform: translate(calc(-50% - 1cqw), -50%);
+    clip-path: inset(0 0 70% 0);
+    filter: drop-shadow(-0.7cqw 0 0 rgb(255 0 60 / 0.85)) drop-shadow(0.7cqw 0 0 rgb(0 240 255 / 0.85));
+  }
+  5% {
+    transform: translate(calc(-50% + 0.8cqw), -50%) skewX(-4deg);
+    clip-path: inset(35% 0 30% 0);
+    filter: drop-shadow(0.5cqw 0 0 rgb(255 0 60 / 0.85)) drop-shadow(-0.5cqw 0 0 rgb(0 240 255 / 0.85));
+  }
+  6% {
+    transform: translate(-50%, -50%);
+    clip-path: none;
+    filter: drop-shadow(0.3cqw 0 0 rgb(255 0 60 / 0.7)) drop-shadow(-0.3cqw 0 0 rgb(0 240 255 / 0.7));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo {
+    animation: none;
+  }
 }
 
 /* Black outline so the white text stays readable where it crosses a tape. Eight hard shadows
