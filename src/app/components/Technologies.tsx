@@ -1,3 +1,5 @@
+import Image from "next/image";
+import { withBasePath } from "@/lib/basePath";
 import { getTranslation, Locale } from "../i18n";
 import { ArrowRightIcon, Chip, Container, SectionHeading } from "./ui";
 
@@ -19,7 +21,41 @@ const CATEGORIES: Array<Category> = [
   { title: "STACK_SIDE", professional: [], confident: ["C", "C++", "Rust", "Godot"] },
 ];
 
+const ICONS: Record<string, string> = {
+  "Java": "/Java_cropped.png",
+  "Kotlin": "/Kotlin.png",
+  "Node.js": "/Node.png",
+  "Python": "/Python.png",
+  "C#": "/CSharp.png",
+  "JavaScript": "/Javascript.png",
+  "TypeScript": "/Typescript.png",
+  "React": "/React.png",
+  "Vue.js": "/Vue.webp",
+  "Angular": "/Angular.png",
+  "SAPUI5": "/sapui5.png",
+  "SAP CAP": "/SAPC.png",
+  "SAP BTP": "/SAP.png",
+  "Cloud Foundry": "/SAPCF.png",
+  "SAP CRM": "/SAP.png",
+  "AWS": "/AWS.png",
+  "AWS CDK": "/CDK.png",
+  "C": "/C.png",
+  "C++": "/C++.png",
+  "Rust": "/Rust.png",
+  "Godot": "/Godot.png",
+};
+
 const chipListClasses = "m-0 flex list-none flex-wrap gap-2 p-0";
+
+function TechIcon({ tech }: { tech: string }) {
+  const src = ICONS[tech];
+  if (!src) return null;
+  return (
+    <span aria-hidden="true" className="-my-0.5 -ml-1.5 mr-2 flex size-6 flex-none items-center justify-center rounded-full bg-white p-1">
+      <Image src={withBasePath(src)} alt="" width={16} height={16} className="size-full object-contain" />
+    </span>
+  );
+}
 
 export default function Technologies({ locale }: TechnologiesProps) {
   const t = getTranslation.bind(null, locale);
@@ -60,12 +96,12 @@ export default function Technologies({ locale }: TechnologiesProps) {
               <ul role="list" className={chipListClasses}>
                 {category.professional.map((tech) => (
                   <Chip key={tech} as="li" variant="solid">
-                    {tech}<span className="sr-only"> ({pro})</span>
+                    <TechIcon tech={tech} />{tech}<span className="sr-only"> ({pro})</span>
                   </Chip>
                 ))}
                 {category.confident.map((tech) => (
                   <Chip key={tech} as="li" variant="outline">
-                    {tech}<span className="sr-only"> ({confident})</span>
+                    <TechIcon tech={tech} />{tech}<span className="sr-only"> ({confident})</span>
                   </Chip>
                 ))}
               </ul>
