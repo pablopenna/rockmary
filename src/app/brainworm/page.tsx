@@ -10,6 +10,7 @@ import styles from "./brainworm.module.css";
 export const metadata: Metadata = {
   title: "Brainworm",
   description: "Brainworm - work in progress. Soon™.",
+  icons: { icon: withBasePath("/bw/bwi.png") },
 };
 
 // Tape positions follow the concept sketch: centre (x%, y%), length (% of stage width), angle.
