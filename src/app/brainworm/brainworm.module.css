@@ -1,12 +1,124 @@
 .page {
+  /* Colours: page background, dim circuit lines, bright travelling pulses. */
+  --page-bg: #000;
+  --circuit-line: #3a2f6b;
+  --circuit-pulse: #9b8cff;
+
   position: fixed;
   inset: 0;
   display: flex;
   justify-content: center;
-  background: #000;
+  background: var(--page-bg);
   color: #fff;
   font-family: var(--font-monogram), ui-monospace, monospace;
   -webkit-font-smoothing: none;
+}
+
+/* Circuit traces fill the margins either side of the column, stopping a little short of it and
+   fading out towards it; pulses travel along them. */
+.circuit {
+  --gap: 2vmin;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: calc((100vw - min(100vw, 64.81dvh)) / 2 - var(--gap));
+  overflow: hidden;
+  mask-image: linear-gradient(to right, #000 55%, transparent);
+}
+
+.circuitRight {
+  left: auto;
+  right: 0;
+  transform: scaleX(-1);
+}
+
+.circuitBoard {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.trace,
+.pulse {
+  fill: none;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.trace {
+  stroke: var(--circuit-line);
+  stroke-width: 3;
+}
+
+.pulse {
+  stroke: var(--circuit-pulse);
+  stroke-width: 4;
+  stroke-dasharray: 6 94;
+  stroke-dashoffset: 6;
+  animation: pulse var(--duration) linear var(--delay) infinite;
+  filter: drop-shadow(0 0 4px var(--circuit-pulse));
+}
+
+.pad {
+  fill: var(--page-bg);
+  stroke: var(--circuit-line);
+  stroke-width: 3;
+}
+
+/* Same look as the page circuits, redrawn for the chip's 200-unit viewBox, centred on the logo. */
+.chip {
+  position: absolute;
+  left: 50%;
+  top: 21.3%;
+  width: 55cqw;
+  height: 55cqw;
+  transform: translate(-50%, -50%);
+}
+
+.chipTrace,
+.chipPulse {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.chipTrace {
+  stroke: var(--circuit-line);
+  stroke-width: 1;
+}
+
+.chipPulse {
+  stroke: var(--circuit-pulse);
+  stroke-width: 1.4;
+  stroke-dasharray: 6 94;
+  stroke-dashoffset: 6;
+  animation: pulse var(--duration) linear var(--delay) infinite reverse;
+  filter: drop-shadow(0 0 1.5px var(--circuit-pulse));
+}
+
+.chipBody {
+  fill: none;
+  stroke: var(--circuit-line);
+  stroke-width: 1.4;
+}
+
+.chipPad {
+  fill: var(--page-bg);
+  stroke: var(--circuit-line);
+  stroke-width: 1;
+}
+
+@keyframes pulse {
+  to {
+    stroke-dashoffset: -94;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse,
+  .chipPulse {
+    display: none;
+  }
 }
 
 /* Tapes run past the stage and are cut off at the column's edges. */

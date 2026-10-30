@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { withBasePath } from "@/lib/basePath";
+import CircuitBackground from "./_components/CircuitBackground";
+import CircuitChip from "./_components/CircuitChip";
 import CautionTape from "./_components/CautionTape";
 import { monogram } from "./fonts";
 import styles from "./brainworm.module.css";
@@ -22,8 +24,10 @@ const TAPES = [
 export default function BrainwormPage() {
   return (
     <main lang="en" className={`${monogram.variable} ${styles.page}`}>
+      <CircuitBackground />
       <div className={styles.column}>
         <div className={styles.stage}>
+          <CircuitChip />
           {/* Tapes first so the logo and text are painted on top of them. */}
           {TAPES.map((tape, i) => (
             <CautionTape key={i} {...tape} />
