@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { MouseEvent, useCallback, useState } from 'react';
 import Image from 'next/image';
 import { withBasePath } from '@/lib/basePath';
 import { format, getTranslation, Locale } from '@/app/i18n';
@@ -21,14 +21,13 @@ interface ProjectIntroProps {
 const SAP_TECH = ['SAP CAP', 'SAPUI5', 'Cloud Foundry'];
 const WAREHOUSE_TECH = ['SAPUI5', 'Apache Cordova', 'Android'];
 
-// Gallery order shown in the lightbox, and which of those images appear as thumbnails.
+// Photos of the app on real scanners, then app screenshots. Same order on the page and in the lightbox.
 const WAREHOUSE_GALLERY = [
-  { src: '/portfolio/rf/portfolio_A_1.jpg', altKey: 'WORK_WAREHOUSE_IMG_3_ALT' },
-  { src: '/portfolio/rf/portfolio_A_2.jpg', altKey: 'WORK_WAREHOUSE_IMG_2_ALT' },
-  { src: '/portfolio/rf/portfolio_A_3.jpg', altKey: 'WORK_WAREHOUSE_IMG_1_ALT' },
-  { src: '/portfolio/rf/portfolio_A_4.jpg', altKey: 'WORK_WAREHOUSE_IMG_4_ALT' },
+  { src: '/portfolio/rf/portfolio_A_1.jpg', altKey: 'WORK_WAREHOUSE_IMG_3_ALT', photo: true },
+  { src: '/portfolio/rf/portfolio_A_4_web.jpg', altKey: 'WORK_WAREHOUSE_IMG_4_ALT', photo: true },
+  { src: '/portfolio/rf/portfolio_A_3.jpg', altKey: 'WORK_WAREHOUSE_IMG_1_ALT', photo: false },
+  { src: '/portfolio/rf/portfolio_A_2.jpg', altKey: 'WORK_WAREHOUSE_IMG_2_ALT', photo: false },
 ];
-const WAREHOUSE_THUMBNAILS = [2, 1];
 
 const articleClasses = 'flex flex-wrap items-center gap-12 rounded-[22px] bg-base p-6 sm:p-10';
 // Flex bases add the padding back: the mockup sizes these boxes as content-box.
@@ -43,7 +42,7 @@ function ProjectIntro({ tag, title, description, tech }: ProjectIntroProps) {
       <h3 className="m-0 font-display text-[clamp(28px,3vw,38px)] leading-[1.1] font-bold tracking-[-0.025em]">
         {title}
       </h3>
-      <p className="m-0 text-contrast-two">{description}</p>
+      <p className="m-0 max-w-[65ch] text-contrast-two">{description}</p>
       <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
         {tech.map((name) => (
           <Chip key={name} as="li" variant="light">
@@ -61,6 +60,11 @@ export default function Portfolio({ locale }: PortfolioProps) {
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
 
   const gallery: LightboxImage[] = WAREHOUSE_GALLERY.map(({ src, altKey }) => ({ src, alt: t(altKey) }));
+  const openLightbox = (event: MouseEvent<HTMLButtonElement>, index: number) => {
+    // Safari doesn't focus buttons on click; the lightbox returns focus here on close.
+    event.currentTarget.focus();
+    setLightboxIndex(index);
+  };
 
   return (
     <Container as="section" id="work" aria-labelledby="work-title" className="flex flex-col gap-10 py-26">
@@ -110,34 +114,32 @@ export default function Portfolio({ locale }: PortfolioProps) {
           description={t('WORK_WAREHOUSE_DESC')}
           tech={WAREHOUSE_TECH}
         />
-        <div className={cx(panelClasses, 'justify-center gap-5')}>
-          {WAREHOUSE_THUMBNAILS.map((galleryIndex, position) => (
-            <button
-              key={galleryIndex}
-              type="button"
-              onClick={(event) => {
-                // Safari doesn't focus buttons on click; the lightbox returns focus here on close.
-                event.currentTarget.focus();
-                setLightboxIndex(galleryIndex);
-              }}
-              aria-label={format(t('COMMON_LIGHTBOX_OPEN'), { alt: gallery[galleryIndex].alt })}
-              aria-haspopup="dialog"
-              className={cx(
-                'relative block aspect-[9/16] w-[46%] max-w-[180px] cursor-zoom-in overflow-hidden rounded-2xl border-[6px] border-contrast p-0 transition-opacity hover:opacity-90',
-                'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-chocolate-plum',
-                position === 1 && 'mt-10'
-              )}
-            >
-              <Image
-                src={withBasePath(gallery[galleryIndex].src)}
-                alt={gallery[galleryIndex].alt}
-                fill
-                sizes="180px"
-                className="object-cover"
-              />
-            </button>
+        {/* Full-width strip below the text. Flex grow follows each image's aspect ratio (3:4 photos, 9:16 screens), so all share one height. */}
+        <ul role="list" className="m-0 grid w-full list-none grid-cols-2 items-start gap-3 rounded-[18px] bg-base-three p-4 sm:gap-5 sm:p-6 md:flex">
+          {WAREHOUSE_GALLERY.map(({ photo }, index) => (
+            <li key={gallery[index].src} className={cx('min-w-0', photo ? 'md:flex-[3_1_0%]' : 'md:flex-[2.25_1_0%]')}>
+              <button
+                type="button"
+                onClick={(event) => openLightbox(event, index)}
+                aria-label={format(t('COMMON_LIGHTBOX_OPEN'), { alt: gallery[index].alt })}
+                aria-haspopup="dialog"
+                className={cx(
+                  'relative block w-full cursor-zoom-in overflow-hidden rounded-2xl p-0 transition-opacity hover:opacity-90',
+                  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-chocolate-plum',
+                  photo ? 'aspect-[3/4]' : 'aspect-[9/16] border-[6px] border-contrast'
+                )}
+              >
+                <Image
+                  src={withBasePath(gallery[index].src)}
+                  alt={gallery[index].alt}
+                  fill
+                  sizes="(min-width: 768px) 300px, 50vw"
+                  className="object-cover"
+                />
+              </button>
+            </li>
           ))}
-        </div>
+        </ul>
       </article>
 
       {lightboxIndex !== null && (

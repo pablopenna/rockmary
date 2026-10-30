@@ -15,7 +15,8 @@ export default function Facts({ locale }: FactsProps) {
   const t = getTranslation.bind(null, locale);
 
   return (
-    <Container as="section" aria-label={t('FACTS_LABEL')} className="pb-22">
+    <Container as="section" aria-labelledby="facts-title" className="pb-22">
+      <h2 id="facts-title" className="sr-only">{t('FACTS_LABEL')}</h2>
       {/* Value then label in DOM order, so each fact reads as one phrase ("8+ yrs corporate engineering"). */}
       <ul role="list" className="m-0 grid list-none grid-cols-1 md:auto-cols-fr md:grid-flow-col gap-px overflow-hidden rounded-[18px] border border-contrast/12 bg-contrast/12 p-0">
         {facts.map((fact) => (

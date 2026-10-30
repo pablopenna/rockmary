@@ -8,12 +8,6 @@ interface AiSectionProps {
 
 const WITHOUT_KEYS = ["AI_WITHOUT_1", "AI_WITHOUT_2", "AI_WITHOUT_3", "AI_WITHOUT_4"];
 
-const BENEFITS = [
-  { title: "AI_BENEFIT_1_TITLE", desc: "AI_BENEFIT_1_DESC" },
-  { title: "AI_BENEFIT_2_TITLE", desc: "AI_BENEFIT_2_DESC" },
-  { title: "AI_BENEFIT_3_TITLE", desc: "AI_BENEFIT_3_DESC" },
-];
-
 const cardClasses = "flex min-w-0 flex-col gap-[22px] rounded-[20px] bg-contrast-four p-6 sm:p-8";
 const cardTitleClasses = "m-0 font-display text-[26px] font-bold tracking-[-0.02em]";
 const iconBoxClasses = "flex size-11 flex-none items-center justify-center rounded-xl";
@@ -51,7 +45,7 @@ export default function AiSection({ locale }: AiSectionProps) {
           tone="dark"
           size="lg"
           eyebrow={t("AI_EYEBROW")}
-          title={<>{t("AI_TITLE_LINE_1")}<br />{t("AI_TITLE_LINE_2")}</>}
+          title={t("AI_TITLE")}
           titleId="ai-title"
           intro={t("AI_INTRO")}
         />
@@ -85,15 +79,6 @@ export default function AiSection({ locale }: AiSectionProps) {
             </ul>
           </div>
         </div>
-
-        <ul role="list" className="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(min(220px,100%),1fr))] gap-8 p-0 pt-2">
-          {BENEFITS.map(({ title, desc }) => (
-            <li key={title} className="flex flex-col gap-1.5 border-t border-white/10 pt-[18px]">
-              <h3 className="m-0 font-display text-[22px] font-bold">{t(title)}</h3>
-              <p className="m-0 text-[16px] text-silver">{t(desc)}</p>
-            </li>
-          ))}
-        </ul>
       </Container>
     </section>
   );

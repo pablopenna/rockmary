@@ -6,9 +6,9 @@ interface HeroProps {
 }
 
 const steps = [
-  { n: "01", title: "WORKFLOW_STEP_1_TITLE", desc: "WORKFLOW_STEP_1_DESC" },
-  { n: "02", title: "WORKFLOW_STEP_2_TITLE", desc: "WORKFLOW_STEP_2_DESC" },
-  { n: "03", title: "WORKFLOW_STEP_3_TITLE", desc: "WORKFLOW_STEP_3_DESC" },
+  { n: "1", title: "WORKFLOW_STEP_1_TITLE", desc: "WORKFLOW_STEP_1_DESC" },
+  { n: "2", title: "WORKFLOW_STEP_2_TITLE", desc: "WORKFLOW_STEP_2_DESC" },
+  { n: "3", title: "WORKFLOW_STEP_3_TITLE", desc: "WORKFLOW_STEP_3_DESC" },
 ];
 
 export default function Hero({ locale }: HeroProps) {
@@ -38,18 +38,13 @@ export default function Hero({ locale }: HeroProps) {
       </div>
 
       <div className="flex min-w-0 flex-[1_1_436px] flex-col gap-1 rounded-[22px] bg-contrast p-6 text-white sm:p-7">
-        <div className="mb-1.5 flex items-center justify-between gap-4 border-b border-contrast-four pb-3.5">
-          <span className="font-mono text-[13px] text-silver">{t('WORKFLOW_LABEL')}</span>
-          <span aria-hidden="true" className="flex flex-none gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-            <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-            <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-          </span>
-        </div>
-        <ol className="m-0 flex list-none flex-col p-0">
+        <h2 className="m-0 mb-1.5 border-b border-contrast-four pb-3.5 font-display text-[22px] font-bold tracking-[-0.02em]">
+          {t('WORKFLOW_TITLE')}
+        </h2>
+        <ol role="list" className="m-0 flex list-none flex-col p-0">
           {steps.map((step) => (
             <li key={step.n} className="flex gap-4 border-b border-white/10 py-3.5 last:border-b-0">
-              <span aria-hidden="true" className="flex-none pt-0.5 font-mono text-[13px] text-blush">
+              <span aria-hidden="true" className="w-3 flex-none font-semibold text-blush">
                 {step.n}
               </span>
               <span className="flex min-w-0 flex-col gap-0.5">
