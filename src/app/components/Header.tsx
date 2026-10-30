@@ -19,6 +19,7 @@ const navItems = [
 const languages: { locale: Locale; href: string; labelKey: string; nameKey: string }[] = [
   { locale: "en", href: "/en", labelKey: "COMMON_LANG_EN", nameKey: "COMMON_LANG_EN_NAME" },
   { locale: "es", href: "/es", labelKey: "COMMON_LANG_ES", nameKey: "COMMON_LANG_ES_NAME" },
+  { locale: "zh", href: "/zh", labelKey: "COMMON_LANG_ZH", nameKey: "COMMON_LANG_ZH_NAME" },
 ];
 
 const focusRing =

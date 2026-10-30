@@ -7,6 +7,8 @@ interface PricingProps {
 
 const EUR_RATE_PER_HOUR = 25;
 const USD_RATE_PER_HOUR = 30;
+const CNY_RATE_PER_HOUR = 200;
+const RATES = { eur: EUR_RATE_PER_HOUR, usd: USD_RATE_PER_HOUR, cny: CNY_RATE_PER_HOUR };
 
 const INCLUDED = [
   { title: 'PRICING_QUALITY_TITLE', desc: 'PRICING_QUALITY_DESC' },
@@ -27,10 +29,10 @@ export default function Pricing({ locale }: PricingProps) {
           </h2>
           <p className="m-0 flex flex-wrap items-baseline gap-2.5 pt-2">
             <span className="font-display text-[72px] leading-none font-bold tracking-[-0.04em]">
-              {format(t('PRICING_RATE'), { eur: EUR_RATE_PER_HOUR })}
+              {format(t('PRICING_RATE'), RATES)}
             </span>
             <span className="text-[18px] text-contrast-two">
-              {format(t('PRICING_RATE_SUFFIX'), { usd: USD_RATE_PER_HOUR })}
+              {format(t('PRICING_RATE_SUFFIX'), RATES)}
             </span>
           </p>
           <p className="m-0 text-contrast-two">{t('PRICING_NOTE')}</p>

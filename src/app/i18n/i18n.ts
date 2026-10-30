@@ -1,6 +1,7 @@
 import { Locale } from ".";
 import enTranslations from "./translations/en.json";
 import esTranslations from "./translations/es.json";
+import zhTranslations from "./translations/zh.json";
 
 export const getTranslation = (locale: Locale, key: string) => {
     const translationsFile = getTranslationFile(locale);
@@ -13,6 +14,8 @@ const getTranslationFile = (locale: Locale): Record<string, string> => {
     switch(locale) {
         case 'es':
             return esTranslations;
+        case 'zh':
+            return zhTranslations;
         default:
             return enTranslations;
     }
