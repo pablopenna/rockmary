@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { withBasePath } from "@/lib/basePath";
 import { getTranslation, Locale } from "../i18n";
+import { localeHref } from "../i18n/localeRedirect";
 import { ButtonLink, Container, cx } from "./ui";
 
 interface HeaderProps {
@@ -16,9 +17,9 @@ const navItems = [
   { href: "#pricing", key: "NAV_PRICING" },
 ];
 
-const languages: { locale: Locale; href: string; labelKey: string; nameKey: string }[] = [
-  { locale: "en", href: "/", labelKey: "COMMON_LANG_EN", nameKey: "COMMON_LANG_EN_NAME" },
-  { locale: "es", href: "/es", labelKey: "COMMON_LANG_ES", nameKey: "COMMON_LANG_ES_NAME" },
+const languages: { locale: Locale; labelKey: string; nameKey: string }[] = [
+  { locale: "en", labelKey: "COMMON_LANG_EN", nameKey: "COMMON_LANG_EN_NAME" },
+  { locale: "es", labelKey: "COMMON_LANG_ES", nameKey: "COMMON_LANG_ES_NAME" },
 ];
 
 const focusRing =
@@ -74,7 +75,7 @@ export default function Header({ locale }: HeaderProps) {
                     <span key={lang.locale} className="flex items-center gap-1.5">
                       {i > 0 && <span aria-hidden="true">/</span>}
                       <Link
-                        href={lang.href}
+                        href={localeHref(lang.locale)}
                         hrefLang={lang.locale}
                         lang={lang.locale}
                         aria-label={name}
