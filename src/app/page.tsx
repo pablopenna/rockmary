@@ -9,6 +9,7 @@ import Pricing from '@/app/components/Pricing';
 import Contact from '@/app/components/Contact';
 import Footer from '@/app/components/Footer';
 import BackToTop from '@/app/components/BackToTop';
+import PageCurl from '@/app/components/PageCurl';
 import { Locale } from './i18n';
 
 interface HomeProps {
@@ -31,6 +32,7 @@ export default function DefaultHome({ locale = 'en' }: HomeProps) {
       </main>
       <Footer locale={locale} />
       <BackToTop locale={locale} />
+      <PageCurl />
     </div>
   );
 }

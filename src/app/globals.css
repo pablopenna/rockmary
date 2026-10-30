@@ -81,3 +81,79 @@ body {
     text-wrap: pretty;
   }
 }
+
+/* Page-turn corner (see PageCurl.tsx). The link box itself ignores the pointer; only the small
+   corner triangle (.page-curl__hit) is hoverable/clickable, so it never covers the header buttons.
+   It only peels once enabled (.page-curl--enabled), which the first click on the corner does. */
+.page-curl {
+  --curl-rest: 40px;
+  --curl-open: 96px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 50;
+  width: var(--curl-open);
+  height: var(--curl-open);
+  pointer-events: none;
+}
+
+.page-curl__hit,
+.page-curl::before,
+.page-curl::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1), height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.page-curl__hit {
+  width: var(--curl-rest);
+  height: var(--curl-rest);
+  pointer-events: auto;
+  cursor: pointer;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+/* What's revealed under the lifted corner: a black page behind, with the image pinned to the corner
+   so it's uncovered as the flap lifts. */
+.page-curl::before {
+  content: "";
+  width: 0;
+  height: 0;
+  background:
+    var(--curl-image) no-repeat top 12px right 12px / 33px 23px,
+    linear-gradient(225deg, #000 50%, transparent 50%);
+  pointer-events: none;
+}
+
+/* The folded-over flap, in the page's own color, shaded darker along the fold so it reads as curled. */
+.page-curl::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-bottom-left-radius: 18%;
+  background: linear-gradient(225deg, transparent 50%, var(--contrast-three) 50%, var(--base) 60%, var(--base-two) 80%);
+  filter: drop-shadow(-4px 4px 5px rgb(0 0 0 / 0.35));
+  pointer-events: none;
+}
+
+.page-curl--enabled:hover .page-curl__hit,
+.page-curl--enabled:hover::before,
+.page-curl--enabled:hover::after {
+  width: var(--curl-open);
+  height: var(--curl-open);
+}
+
+@media (hover: none) {
+  .page-curl {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-curl__hit,
+  .page-curl::before,
+  .page-curl::after {
+    transition: none;
+  }
+}
