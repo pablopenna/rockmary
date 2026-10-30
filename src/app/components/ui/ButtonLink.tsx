@@ -59,7 +59,7 @@ export default function ButtonLink({
   return (
     <a className={buttonClasses({ variant, size, tone, className })} {...externalProps} {...props}>
       {icon && iconPosition === "start" && icon}
-      <span className="min-w-0 [overflow-wrap:anywhere]">{children}</span>
+      <span className="min-w-0 break-words">{children}</span>
       {icon && iconPosition === "end" && icon}
     </a>
   );

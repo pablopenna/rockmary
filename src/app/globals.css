@@ -70,3 +70,14 @@ body {
   font-size: 17px;
   line-height: 1.55;
 }
+
+/* Even out heading lines and avoid single-word last lines in body copy. */
+@layer base {
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+
+  p, li {
+    text-wrap: pretty;
+  }
+}

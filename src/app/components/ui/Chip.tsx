@@ -35,7 +35,7 @@ export default function Chip({ children, variant = "solid", size = "sm", as: Tag
   return (
     <Tag
       className={cx(
-        "inline-flex max-w-full items-center rounded-full [overflow-wrap:anywhere]",
+        "inline-flex max-w-full items-center rounded-full break-words",
         paddings[size],
         variant === "tag" ? "text-[12px]" : textSizes[size],
         variants[variant],

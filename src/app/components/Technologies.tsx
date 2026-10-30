@@ -1,6 +1,5 @@
 import { getTranslation, Locale } from "../i18n";
-import { AI_HARNESSES, AI_MODELS } from "../data/aiTools";
-import { Chip, Container, SectionHeading } from "./ui";
+import { ArrowRightIcon, Chip, Container, SectionHeading } from "./ui";
 
 interface TechnologiesProps {
   locale: Locale
@@ -11,8 +10,6 @@ interface Category {
   professional: Array<string>,
   confident: Array<string>,
 }
-
-const AI_TOOLS = [...AI_HARNESSES, ...AI_MODELS];
 
 const CATEGORIES: Array<Category> = [
   { title: "STACK_BACKEND", professional: ["Java", "Kotlin", "Node.js"], confident: ["Python", "C#"] },
@@ -56,21 +53,6 @@ export default function Technologies({ locale }: TechnologiesProps) {
           aside={legend}
         />
 
-        <div className="flex flex-wrap items-center gap-8 rounded-[20px] border-2 border-chocolate-plum bg-base-three p-6 sm:p-8">
-          <div className="flex min-w-0 flex-[1_1_320px] flex-col gap-2">
-            <span className="font-mono text-[12px] font-medium text-chocolate-plum">{t("STACK_AI_LABEL")}</span>
-            <h3 className="m-0 font-display text-[26px] font-bold tracking-[-0.02em]">{t("STACK_AI_TITLE")}</h3>
-            <p className="m-0 text-[16px] text-contrast-two">{t("STACK_AI_DESC")}</p>
-          </div>
-          <ul role="list" className={`${chipListClasses} min-w-0 flex-[2_1_420px]`}>
-            {AI_TOOLS.map((tool) => (
-              <Chip key={tool} as="li" variant="solid" size="md">{tool}</Chip>
-            ))}
-            <Chip as="li" variant="outline" size="md">{t("STACK_ANY_HARNESS")}</Chip>
-            <Chip as="li" variant="outline" size="md">{t("STACK_ANY_MODEL")}</Chip>
-          </ul>
-        </div>
-
         <ul role="list" className="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(min(260px,100%),1fr))] gap-4 p-0">
           {CATEGORIES.map((category) => (
             <li key={category.title} className="flex min-w-0 flex-col gap-3.5 rounded-[18px] bg-base-three p-[26px]">
@@ -89,6 +71,17 @@ export default function Technologies({ locale }: TechnologiesProps) {
               </ul>
             </li>
           ))}
+          <li className="flex min-w-0 flex-col gap-3.5 rounded-[18px] bg-base-three p-[26px] ring-2 ring-chocolate-plum ring-inset">
+            <h3 className="m-0 font-display text-[21px] font-bold tracking-[-0.02em]">{t("STACK_AI_TITLE")}</h3>
+            <p className="m-0 text-[15px] text-contrast-two">{t("STACK_AI_DESC")}</p>
+            <a
+              href="#ai"
+              className="mt-auto inline-flex items-center gap-2 self-start font-semibold text-chocolate-plum hover:text-contrast focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-chocolate-plum"
+            >
+              {t("STACK_AI_LINK")}
+              <ArrowRightIcon size={16} />
+            </a>
+          </li>
         </ul>
       </Container>
     </section>

@@ -21,7 +21,7 @@ export default function Hero({ locale }: HeroProps) {
           <span aria-hidden="true" className="h-2 w-2 flex-none rounded-full bg-green-700" />
           {t('HERO_BADGE')}
         </span>
-        <h1 className="m-0 font-display text-[clamp(44px,6.2vw,82px)] font-bold leading-none tracking-[-0.035em] break-words">
+        <h1 className="m-0 font-display text-[clamp(44px,6.2vw,82px)] font-bold leading-none tracking-[-0.035em]">
           {t('HERO_TITLE_LINE_1')}
           <br />
           <span className="text-chocolate-plum">{t('HERO_TITLE_LINE_2')}</span>
