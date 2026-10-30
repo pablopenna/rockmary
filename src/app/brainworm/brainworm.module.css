@@ -1,0 +1,116 @@
+.page {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  background: #000;
+  color: #fff;
+  font-family: var(--font-monogram), ui-monospace, monospace;
+  -webkit-font-smoothing: none;
+}
+
+/* Tapes run past the stage and are cut off at the column's edges. */
+.column {
+  position: relative;
+  width: min(100vw, 64.81dvh);
+  height: 100dvh;
+  overflow: hidden;
+  background: #000;
+}
+
+.stage {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  container-type: inline-size;
+  width: 100%;
+  aspect-ratio: 700 / 1080;
+  transform: translateY(-50%);
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 21.3%;
+  width: 42cqw;
+  height: auto;
+  transform: translate(-50%, -50%);
+  image-rendering: pixelated;
+}
+
+/* Black outline so the white text stays readable where it crosses a tape. Eight hard shadows
+   instead of text-stroke, which would eat into the thin pixel glyphs. */
+.title,
+.soon {
+  --outline: 0.025em;
+  text-shadow:
+    var(--outline) 0 #000,
+    calc(-1 * var(--outline)) 0 #000,
+    0 var(--outline) #000,
+    0 calc(-1 * var(--outline)) #000,
+    var(--outline) var(--outline) #000,
+    calc(-1 * var(--outline)) var(--outline) #000,
+    var(--outline) calc(-1 * var(--outline)) #000,
+    calc(-1 * var(--outline)) calc(-1 * var(--outline)) #000;
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  top: 38.5%;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  font-size: 26.5cqw;
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.soon {
+  position: absolute;
+  left: 50%;
+  top: 52.5%;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  --outline: 0.08em;
+  font-size: 6.6cqw;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.soon sup {
+  font-size: 0.6em;
+}
+
+.tape {
+  position: absolute;
+  height: 5.8cqw;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: hidden;
+  background: #ff0;
+  border: 0.5cqw solid #000;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 3cqw;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Two short, slanted black marks, like the stripes painted on hazard tape. */
+.tapeMarks {
+  display: inline-flex;
+  gap: 1cqw;
+}
+
+.tapeMarks::before,
+.tapeMarks::after {
+  content: "";
+  width: 1.2cqw;
+  height: 3.6cqw;
+  border-radius: 999px;
+  background: #000;
+  transform: rotate(12deg);
+}
