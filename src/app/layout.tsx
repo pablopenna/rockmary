@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { withBasePath } from "@/lib/basePath";
 import { getPageMetadata } from "./i18n";
 import { localeRedirectScript } from "./i18n/localeRedirect";
 
@@ -27,7 +28,12 @@ const jetbrainsMono = localFont({
   display: "swap",
 });
 
-export const metadata: Metadata = getPageMetadata("en");
+// The favicon is declared here rather than as app/favicon.ico: that file convention is emitted on every route
+// and can't be overridden, whereas pages (e.g. /brainworm) can replace this `icons` entry with their own.
+export const metadata: Metadata = {
+  ...getPageMetadata("en"),
+  icons: { icon: withBasePath("/favicon.ico") },
+};
 
 export default function RootLayout({
   children,
